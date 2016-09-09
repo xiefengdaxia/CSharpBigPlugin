@@ -1,0 +1,9 @@
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\bin\Debug\CSharpBigPlugin.exe
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\bin\Debug\CSharpBigPlugin.pdb
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\bin\Debug\CSPluginKernel.dll
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\bin\Debug\CSPluginKernel.pdb
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\obj\Debug\CSharpBigPlugin.Form1.resources
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\obj\Debug\CSharpBigPlugin.Properties.Resources.resources
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\obj\Debug\CSharpBigPlugin.csproj.GenerateResource.Cache
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\obj\Debug\CSharpBigPlugin.exe
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\obj\Debug\CSharpBigPlugin.pdb
