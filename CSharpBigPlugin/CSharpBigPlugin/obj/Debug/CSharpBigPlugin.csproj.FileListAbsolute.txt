@@ -7,3 +7,4 @@ E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\obj\Debug\CS
 E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\obj\Debug\CSharpBigPlugin.csproj.GenerateResource.Cache
 E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\obj\Debug\CSharpBigPlugin.exe
 E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\obj\Debug\CSharpBigPlugin.pdb
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\obj\Debug\CSharpBigPlugin.csprojResolveAssemblyReference.cache

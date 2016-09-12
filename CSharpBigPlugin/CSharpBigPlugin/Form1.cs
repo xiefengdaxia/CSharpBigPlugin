@@ -107,8 +107,9 @@ namespace CSharpBigPlugin
                 MetroTileItem MTI = new MetroTileItem();
                 MTI.TileColor = eMetroTileColor.DarkGreen;
                 MTI.Name = pia.Name;
-                MTI.TitleText = pia.Name;
-                MTI.Text = pia.Author + pia.Version;
+                MTI.TitleText = pia.Name;// +pia.Author + pia.Version;
+                MTI.Text ="";//
+                MTI.TitleTextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
                 MTI.Click += new EventHandler(RunPlugin);
                 pia.Tag = MTI;
                 this.itemContainer1.SubItems.Add(MTI);
