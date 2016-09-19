@@ -5,6 +5,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpBigPlugin", "CSharpBi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETS_database_structure", "..\ETS_database_structure\ETS_database_structure.csproj", "{07D4B4EC-DF04-4C35-9472-A56704CBBFB7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSPluginKernel", "..\CSPluginKernel\CSPluginKernel.csproj", "{4DDC6EF8-4050-40AD-A038-86ED9C33F4E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHelper", "CSHelper\CSHelper.csproj", "{9C9E6438-9F92-4724-822F-C207DD2329D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildAndExecuteSQL", "BuildAndExecuteSQL\BuildAndExecuteSQL.csproj", "{019C760B-53B6-4BAB-A91F-694631940970}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressProfiler", "ExpressProfiler\ExpressProfiler\ExpressProfiler.csproj", "{74D3E3A1-9DBC-4880-841C-FA5583611A73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsertSqlLookValue", "InsertSqlLookValue\InsertSqlLookValue.csproj", "{DB17AA52-6CA7-4FF1-A661-FBDE824D8CC8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +29,26 @@ Global
 		{07D4B4EC-DF04-4C35-9472-A56704CBBFB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07D4B4EC-DF04-4C35-9472-A56704CBBFB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07D4B4EC-DF04-4C35-9472-A56704CBBFB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DDC6EF8-4050-40AD-A038-86ED9C33F4E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DDC6EF8-4050-40AD-A038-86ED9C33F4E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DDC6EF8-4050-40AD-A038-86ED9C33F4E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DDC6EF8-4050-40AD-A038-86ED9C33F4E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C9E6438-9F92-4724-822F-C207DD2329D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C9E6438-9F92-4724-822F-C207DD2329D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C9E6438-9F92-4724-822F-C207DD2329D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C9E6438-9F92-4724-822F-C207DD2329D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{019C760B-53B6-4BAB-A91F-694631940970}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{019C760B-53B6-4BAB-A91F-694631940970}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{019C760B-53B6-4BAB-A91F-694631940970}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{019C760B-53B6-4BAB-A91F-694631940970}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74D3E3A1-9DBC-4880-841C-FA5583611A73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74D3E3A1-9DBC-4880-841C-FA5583611A73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74D3E3A1-9DBC-4880-841C-FA5583611A73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74D3E3A1-9DBC-4880-841C-FA5583611A73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB17AA52-6CA7-4FF1-A661-FBDE824D8CC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB17AA52-6CA7-4FF1-A661-FBDE824D8CC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB17AA52-6CA7-4FF1-A661-FBDE824D8CC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB17AA52-6CA7-4FF1-A661-FBDE824D8CC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

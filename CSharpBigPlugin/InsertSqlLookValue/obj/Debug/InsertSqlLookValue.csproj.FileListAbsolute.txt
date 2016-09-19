@@ -1,0 +1,8 @@
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\InsertSqlLookValue\bin\Debug\InsertSqlLookValue.exe
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\InsertSqlLookValue\bin\Debug\InsertSqlLookValue.pdb
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\InsertSqlLookValue\obj\Debug\InsertSqlLookValue.csprojResolveAssemblyReference.cache
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\InsertSqlLookValue\obj\Debug\InsertSqlLookValue.Form1.resources
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\InsertSqlLookValue\obj\Debug\InsertSqlLookValue.Properties.Resources.resources
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\InsertSqlLookValue\obj\Debug\InsertSqlLookValue.csproj.GenerateResource.Cache
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\InsertSqlLookValue\obj\Debug\InsertSqlLookValue.exe
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\InsertSqlLookValue\obj\Debug\InsertSqlLookValue.pdb

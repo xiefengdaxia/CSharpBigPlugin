@@ -173,8 +173,21 @@ namespace CSharpBigPlugin
         {
             MessageBox.Show(msg);
         }
-
         #endregion
+
+        private void metroShell1_SettingsButtonClick(object sender, EventArgs e)
+        {
+            try
+            {
+                string path = Application.StartupPath + "\\lxerp.ini";
+                System.Diagnostics.Process.Start(path); //打开此文件。
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\n\r" + ex.StackTrace,"错误提示");
+            }
+        }
+
 
 
 

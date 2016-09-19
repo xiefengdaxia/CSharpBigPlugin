@@ -1,0 +1,7 @@
+D:\搜狗高速下载\expressprofiler-43186\ExpressProfiler\ExpressProfiler.Ecosystem\bin\Debug\ExpressProfiler.Ecosystem.dll
+D:\搜狗高速下载\expressprofiler-43186\ExpressProfiler\ExpressProfiler.Ecosystem\bin\Debug\ExpressProfiler.Ecosystem.pdb
+D:\搜狗高速下载\expressprofiler-43186\ExpressProfiler\ExpressProfiler.Ecosystem\bin\Debug\RedGate.SIPFrameworkShared.dll
+D:\搜狗高速下载\expressprofiler-43186\ExpressProfiler\ExpressProfiler.Ecosystem\bin\Debug\RedGate.SIPFrameworkShared.pdb
+D:\搜狗高速下载\expressprofiler-43186\ExpressProfiler\ExpressProfiler.Ecosystem\obj\Debug\ExpressProfiler.Ecosystem.csprojResolveAssemblyReference.cache
+D:\搜狗高速下载\expressprofiler-43186\ExpressProfiler\ExpressProfiler.Ecosystem\obj\Debug\ExpressProfiler.Ecosystem.dll
+D:\搜狗高速下载\expressprofiler-43186\ExpressProfiler\ExpressProfiler.Ecosystem\obj\Debug\ExpressProfiler.Ecosystem.pdb

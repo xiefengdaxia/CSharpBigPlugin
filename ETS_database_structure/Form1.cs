@@ -22,7 +22,7 @@ namespace ETS_database_structure
             InitializeComponent();
             _Obj = obj;
             //Control.CheckForIllegalCrossThreadCalls = false;
-            getsqlconn();
+            CSHelper.getsqlconn();
         }
 
         //上次检索的表
@@ -30,187 +30,9 @@ namespace ETS_database_structure
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            lastWord = CSHelper.ReadINI("Connection", "LastWord");
             txtTableName.Text = lastWord;
         }
-        #region //根据传入的sql语句返回受影响的行数
-        /// <summary>
-        /// 根据传入的sql语句返回受影响的行数
-        /// </summary>
-        /// <param name="sql"></param>
-        /// <returns></returns>
-        public int exec_sql(string sql)
-        {
-            int result = 0;
-            SqlConnection conn = new SqlConnection(Sqlconn);
-            try
-            {
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                conn.Open();
-                SqlCommand cmd2 = new SqlCommand("set Context_Info 0x123456789", conn);
-
-                result = cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                saveErrLog(sql + ex.Message, DateTime.Now.ToString("yyyy-MM-dd") + "-sql_err");
-                return result;
-            }
-
-            finally
-            {
-                conn.Close();
-            }
-
-            return result;
-        }
-        #endregion
-
-        #region "声明变量"
-
-        /// <summary>
-        /// 写入INI文件
-        /// </summary>
-        /// <param name="section">节点名称[如[TypeName]]</param>
-        /// <param name="key">键</param>
-        /// <param name="val">值</param>
-        /// <param name="filepath">文件路径</param>
-        /// <returns></returns>
-        [System.Runtime.InteropServices.DllImport("kernel32")]
-        private static extern long WritePrivateProfileString(string section, string key, string val, string filepath);
-        /// <summary>
-        /// 读取INI文件
-        /// </summary>
-        /// <param name="section">节点名称</param>
-        /// <param name="key">键</param>
-        /// <param name="def">值</param>
-        /// <param name="retval">stringbulider对象</param>
-        /// <param name="size">字节大小</param>
-        /// <param name="filePath">文件路径</param>
-        /// <returns></returns>
-        [DllImport("kernel32")]
-        private static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retval, int size, string filePath);
-
-        private string strFilePath = Application.StartupPath + "\\lxerp.ini";//获取INI文件路径
-        private string strSec = ""; //INI文件名
-
-        #endregion
-
-        #region "自定义读取INI文件中的内容方法"
-        /// <summary>
-        /// 自定义读取INI文件中的内容方法
-        /// </summary>
-        /// <param name="Section">键</param>
-        /// <param name="key">值</param>
-        /// <returns></returns>
-        private string ContentValue(string Section, string key)
-        {
-
-            StringBuilder temp = new StringBuilder(1024);
-            GetPrivateProfileString(Section, key, "", temp, 1024, strFilePath);
-            return temp.ToString();
-        }
-
-        public long WriteINI(string key, string value)
-        {
-            long result = 0;
-            result = WritePrivateProfileString("Connection", key, value, strFilePath);
-            return result;
-        }
-        #endregion
-
-        #region "获取sqlconn连接参数"
-
-        private string sqlconn;
-
-        public string Sqlconn
-        {
-            get { return sqlconn; }
-            set { sqlconn = value; }
-        }
-
-        public void getsqlconn()
-        {
-            try
-            {
-                if (File.Exists(strFilePath))//读取时先要判读INI文件是否存在
-                {
-
-                    //strSec = Path.GetFileNameWithoutExtension(strFilePath);
-                    strSec = "Connection";
-                    string Database = ContentValue(strSec, "Database");
-                    string ServerName = ContentValue(strSec, "ServerName");
-                    string LogId = ContentValue(strSec, "LogId");
-                    string Logpass = ContentValue(strSec, "Logpass");
-                    sqlconn = @"server=" + ServerName + ";database = " + Database + "; uid =" + LogId + "; pwd = " + Logpass + ";";
-                    lastWord = ContentValue(strSec, "LastWord");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        #endregion
-
-        #region //保存log
-        public void saveErrLog(string log, string txtName)
-        {
-            //txtName = "log";
-            log = DateTime.Now.ToString() + " : " + log;
-            string path = Application.StartupPath + "\\";
-            if (File.Exists(path + @"\" + txtName + ".txt"))
-            {
-                StreamWriter SW;
-                SW = File.AppendText(path + @"\" + txtName + ".txt");
-                SW.WriteLine(log + "\r\n");
-                SW.Close();
-            }
-            else
-            {
-                StreamWriter SW;
-                SW = File.CreateText(path + @"\" + txtName + ".txt");
-                SW.WriteLine(log + "\r\n");
-                SW.Close();
-            }
-
-        }
-        #endregion
-
-
-
-        #region //判断是否存在
-        /// <summary>
-        /// 判断存在
-        /// </summary>
-        /// <param name="sql"></param>
-        /// <returns></returns>
-        public int ifExist(string sql)
-        {
-            int result = 0;
-            SqlConnection conn = new SqlConnection(Sqlconn);
-            try
-            {
-
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                conn.Open();
-                result = int.Parse(cmd.ExecuteScalar().ToString());
-
-            }
-            catch (Exception ex)
-            {
-                saveErrLog(sql + ex.Message, DateTime.Now.ToString("yyyy-MM-dd") + "-sql_err");
-                return result;
-            }
-
-            finally
-            {
-                conn.Close();
-                conn.Dispose();
-            }
-
-            return result;
-        }
-        #endregion
 
         /// <summary>
         /// 显示loading加载图
@@ -287,7 +109,7 @@ FROM    syscolumns a
                     sql += " ORDER BY PATINDEX('% ' + CONVERT(nvarchar(4000), d.name) + ' %', ' ' + CONVERT(nvarchar(4000), Replace('" + textBox4.Text.Trim().Replace("'", "") + "', ',',' , ')) + ' ')";
                 else
                     sql += @"ORDER BY a.id ,a.colorder";
-                SqlConnection conn = new SqlConnection(Sqlconn);
+                SqlConnection conn = new SqlConnection(CSHelper.sqlconn);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -299,7 +121,7 @@ FROM    syscolumns a
                     sb.AppendLine("[toc]");
                     sb.AppendLine("##新产品后台数据库结构");
                 }
-                else
+                else if (chkXML.Checked)
                     sb.AppendLine(Properties.Resources.headtext);
 
                 int i = 0;
@@ -394,7 +216,7 @@ FROM    syscolumns a
             }
             catch (Exception ex)
             {
-                saveErrLog(ex.Message + "\n" + ex.StackTrace, DateTime.Now.ToString("yyyy-MM-dd") + "-ex");
+                CSHelper.saveErrLog(ex.Message + "\n" + ex.StackTrace, DateTime.Now.ToString("yyyy-MM-dd") + "-ex");
             }
             finally
             {
@@ -503,7 +325,7 @@ FROM    syscolumns a
                 else
                     sql += " WHERE d.name = '" + txtTableName.Text.Trim() + "'";
                 sql += @"ORDER BY a.id ,a.colorder";
-                SqlConnection conn = new SqlConnection(Sqlconn);
+                SqlConnection conn = new SqlConnection(CSHelper.sqlconn);
                 conn.Open();
                 SqlDataAdapter huoche = new SqlDataAdapter(sql, conn);
                 DataSet ds = new DataSet();
@@ -524,8 +346,8 @@ FROM    syscolumns a
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            showDataGirdView(0);
-            WriteINI("LastWord", txtTableName.Text);
+           showDataGirdView(0);
+           CSHelper.WriteINI("LastWord", txtTableName.Text);
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -547,15 +369,15 @@ FROM    syscolumns a
             //改表名备注
             if (dgvTableAttribute.Rows.Count > 1 && textBox2.Text.Trim() != string.Empty && textBox2.Text.Trim() != dgvTableAttribute.CurrentRow.Cells["表备注"].Value.ToString())
             {
-                if (ifExist("select count(*) from t_table_name where table_name='" + label4.Text + "'") > 0)
+                if (CSHelper.ifExist("select count(*) from t_table_name where table_name='" + label4.Text + "'") > 0)
                 {
                     //修改表名备注
-                    exec_sql("update t_table_name set remark ='" + textBox2.Text.Trim() + "' where table_name='" + label4.Text + "'");
+                    CSHelper.exec_sql("update t_table_name set remark ='" + textBox2.Text.Trim() + "' where table_name='" + label4.Text + "'");
                 }
                 else
                 {
                     //新增表名备注
-                    exec_sql("insert into t_table_name values('" + label4.Text + "','" + textBox2.Text.Trim() + "')");
+                    CSHelper.exec_sql("insert into t_table_name values('" + label4.Text + "','" + textBox2.Text.Trim() + "')");
                 }
                 //MessageBox.Show("表备注更新成功！");
             }
@@ -596,15 +418,15 @@ FROM    syscolumns a
                     string[] arr = item.Split(',');
 
                     //判断是否已经存在
-                    if (ifExist("select count(*) from t_table_field where table_name='" + label4.Text + "' and table_field='" + arr[1] + "' ") > 0)
+                    if (CSHelper.ifExist("select count(*) from t_table_field where table_name='" + label4.Text + "' and table_field='" + arr[1] + "' ") > 0)
                     {
                         //存在则修改
-                        exec_sql("update t_table_field set remark ='" + arr[2] + "' where table_name='" + label4.Text + "' and table_field='" + arr[1] + "' ");
+                        CSHelper.exec_sql("update t_table_field set remark ='" + arr[2] + "' where table_name='" + label4.Text + "' and table_field='" + arr[1] + "' ");
                     }
                     else
                     {
                         //不存在就新增
-                        exec_sql("insert into t_table_field values('" + arr[0] + "','" + arr[1] + "','" + arr[2] + "')");
+                        CSHelper.exec_sql("insert into t_table_field values('" + arr[0] + "','" + arr[1] + "','" + arr[2] + "')");
                     }
 
                 }
@@ -685,7 +507,7 @@ FROM    syscolumns a
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             //记录上次查询的
-            WriteINI("LastWord", txtTableName.Text);
+            CSHelper.WriteINI("LastWord", txtTableName.Text);
         }
 
 

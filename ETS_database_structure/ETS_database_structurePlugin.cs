@@ -10,6 +10,7 @@ namespace ETS_database_structure
     public class ETS_database_structurePlugin:IPlugin
     {
         public ETS_database_structurePlugin() { }
+
         #region IPlugin 成员
 
         public ConnectionResult Connect(IApplicationObject app)
@@ -50,7 +51,6 @@ namespace ETS_database_structure
         }
 
         #endregion
-
 
         private IApplicationObject _App;
         private IDocumentObject _CurDoc;

@@ -1,0 +1,5 @@
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSHelper\bin\Debug\CSHelper.dll
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSHelper\bin\Debug\CSHelper.pdb
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSHelper\obj\Debug\CSHelper.dll
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSHelper\obj\Debug\CSHelper.pdb
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSHelper\obj\Debug\CSHelper.csprojResolveAssemblyReference.cache

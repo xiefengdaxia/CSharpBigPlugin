@@ -4,7 +4,7 @@ E:\谢峰桌面\C__Plugin_1774987282004\CSPluginKernel\obj\Debug\MyScript.dll
 E:\谢峰桌面\C__Plugin_1774987282004\CSPluginKernel\obj\Debug\MyScript.pdb
 E:\谢峰C#\Project\CSharpBigPlugin\Debug\CSPluginKernel.dll
 E:\谢峰C#\Project\CSharpBigPlugin\Debug\CSPluginKernel.pdb
-E:\谢峰C#\Project\CSharpBigPlugin\CSPluginKernel\obj\Debug\CSPluginKernel.dll
-E:\谢峰C#\Project\CSharpBigPlugin\CSPluginKernel\obj\Debug\CSPluginKernel.pdb
 E:\谢峰C#\Project\CSharpBigPlugin\CSPluginKernel\bin\Debug\CSPluginKernel.dll
 E:\谢峰C#\Project\CSharpBigPlugin\CSPluginKernel\bin\Debug\CSPluginKernel.pdb
+E:\谢峰C#\Project\CSharpBigPlugin\CSPluginKernel\obj\Debug\CSPluginKernel.dll
+E:\谢峰C#\Project\CSharpBigPlugin\CSPluginKernel\obj\Debug\CSPluginKernel.pdb

@@ -37,6 +37,9 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -84,12 +87,23 @@
     <Content Include="Guy Fawkes Mask.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CSharpBigPlugin\CSHelper\CSHelper.csproj">
+      <Project>{9c9e6438-9f92-4724-822f-c207dd2329d9}</Project>
+      <Name>CSHelper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CSPluginKernel\CSPluginKernel.csproj">
       <Project>{4ddc6ef8-4050-40ad-a038-86ed9c33f4e9}</Project>
       <Name>CSPluginKernel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy /y $(TargetDir)$(TargetName).dll "E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\bin\Debug\plugins"</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
