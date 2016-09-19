@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSPluginKernel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,9 +12,11 @@ namespace InsertSqlLookValue
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        private IDocumentObject _Obj;
+        public Form1(IDocumentObject obj)
         {
             InitializeComponent();
+            _Obj = obj;
         }
         public string sqlFields;
         public string fieldsValues;
@@ -27,22 +30,27 @@ namespace InsertSqlLookValue
             string[] ArrayFields = sqlFields.Replace(" ", "").Split(',');
             string[] ArrayValuess = fieldsValues.Replace(" ", "").Split(',');
             var dict = new Dictionary<string, string>();
+            richTextBox2.AppendText("{\n");
             for (int i = 0; i < ArrayFields.Length; i++)
             {
-                dict.Add(ArrayFields[i], ArrayValuess[i]);
-                RichShow(ArrayFields[i], ArrayValuess[i],richTextBox2);
+               dict.Add(ArrayFields[i], ArrayValuess[i]);
+               RichShow(ArrayFields[i], ArrayValuess[i],richTextBox2,i==ArrayFields.Length-1);
             }
+            richTextBox2.AppendText("}");
             
         }
+
+
          //需要插入的字符和颜色
-        void RichShow(string field,string value,RichTextBox rtb)
+        void RichShow(string field,string value,RichTextBox rtb, bool ifLastValue)
         {
             rtb.SelectionColor = Color.Purple;
-            rtb.AppendText(field + ":");
+            rtb.AppendText("    \""+field + "\":");
+            if (value != "" && !ifLastValue) value += ",";
             if (value.Contains("'"))
             {
                 rtb.SelectionColor = Color.Green;
-                rtb.AppendText(value+"\n");
+                rtb.AppendText(value.Replace("'","\"")+"\n");
             }
             else if (value.Contains("null") || value.Contains("NULL"))
             {
@@ -99,5 +107,37 @@ namespace InsertSqlLookValue
             }
             return cnt;
         }
+
+        internal void FindText(RichTextBox rtb, string text)
+        {
+            rtb.HideSelection = false;
+            int searchStartPosition = 0;// rtb.SelectionStart;
+            if (rtb.SelectedText.Length > 0)
+            {
+                searchStartPosition = rtb.SelectionStart + rtb.SelectedText.Length;
+            }
+
+            int indexOfText = rtb.Find(text, searchStartPosition, RichTextBoxFinds.None);
+            if (indexOfText >= 0)
+            {
+                searchStartPosition = indexOfText + rtb.SelectionLength;
+                rtb.Select(indexOfText, rtb.SelectionLength);
+            }
+            else
+            {
+                MessageBox.Show(String.Format("往下找不到“{0}”...", text),"友情提示");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FindText(richTextBox2, textBox1.Text);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
+
 }
