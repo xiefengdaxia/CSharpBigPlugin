@@ -95,7 +95,8 @@
             this.metroAppButton1.ImagePaddingVertical = 0;
             this.metroAppButton1.Name = "metroAppButton1";
             this.metroAppButton1.ShowSubItems = false;
-            this.metroAppButton1.Text = "&开";
+            this.metroAppButton1.Text = "&换色";
+            this.metroAppButton1.Click += new System.EventHandler(this.metroAppButton1_Click);
             // 
             // metroTabItem1
             // 

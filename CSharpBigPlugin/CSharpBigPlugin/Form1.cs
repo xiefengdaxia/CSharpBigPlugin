@@ -100,15 +100,19 @@ namespace CSharpBigPlugin
                     MessageBox.Show(err.Message);
                 }
             }
-
+            //随机产生颜色
+            eMetroTileColor[] colors = Enum.GetValues(typeof(eMetroTileColor)) as eMetroTileColor[];
+            Random random = new Random();
             foreach (PluginInfoAttribute pia in piProperties)
             {
                 //MenuItem tmp = menuItem6.MenuItems.Add(pia.Name + " " + pia.Version + " [ " + pia.Author + " ]");
                 MetroTileItem MTI = new MetroTileItem();
-                MTI.TileColor = eMetroTileColor.DarkGreen;
+                //随机赋值一个颜色
+                MTI.TileColor = colors[random.Next(0, colors.Length)];// eMetroTileColor.DarkGreen;
                 MTI.Name = pia.Name;
                 MTI.TitleText = pia.Name;// +pia.Author + pia.Version;
-                MTI.Text ="";//
+                //MTI.Text = pia.Author;//
+                MTI.Symbol = "☺";
                 MTI.TitleTextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
                 MTI.Click += new EventHandler(RunPlugin);
                 pia.Tag = MTI;
@@ -185,6 +189,16 @@ namespace CSharpBigPlugin
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + "\n\r" + ex.StackTrace,"错误提示");
+            }
+        }
+
+        private void metroAppButton1_Click(object sender, EventArgs e)
+        {
+            eMetroTileColor[] colors = Enum.GetValues(typeof(eMetroTileColor)) as eMetroTileColor[];
+            Random random = new Random();
+            foreach (DevComponents.DotNetBar.Metro.MetroTileItem item in this.itemContainer1.SubItems)
+            {
+                item.TileColor = colors[random.Next(0, colors.Length)];
             }
         }
 

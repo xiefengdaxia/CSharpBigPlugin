@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Guy Fawkes Mask.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CSPluginKernel">
       <HintPath>..\..\Debug\CSPluginKernel.dll</HintPath>
@@ -82,6 +85,9 @@
       <Project>{9c9e6438-9f92-4724-822f-c207dd2329d9}</Project>
       <Name>CSHelper</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Guy Fawkes Mask.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
