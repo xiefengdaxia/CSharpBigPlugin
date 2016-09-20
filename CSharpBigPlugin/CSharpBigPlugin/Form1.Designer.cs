@@ -35,6 +35,13 @@
             this.metroAppButton1 = new DevComponents.DotNetBar.Metro.MetroAppButton();
             this.metroTabItem1 = new DevComponents.DotNetBar.Metro.MetroTabItem();
             this.metroTabItem2 = new DevComponents.DotNetBar.Metro.MetroTabItem();
+            this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
+            this.win7 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem3 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem4 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem5 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem2 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem6 = new DevComponents.DotNetBar.ButtonItem();
             this.metroStatusBar1 = new DevComponents.DotNetBar.Metro.MetroStatusBar();
             this.metroTilePanel1 = new DevComponents.DotNetBar.Metro.MetroTilePanel();
             this.itemContainer1 = new DevComponents.DotNetBar.ItemContainer();
@@ -63,6 +70,8 @@
             this.metroShell1.KeyTipsFont = new System.Drawing.Font("Tahoma", 7F);
             this.metroShell1.Location = new System.Drawing.Point(1, 1);
             this.metroShell1.Name = "metroShell1";
+            this.metroShell1.QuickToolbarItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.buttonItem1});
             this.metroShell1.SettingsButtonText = "设置";
             this.metroShell1.Size = new System.Drawing.Size(835, 67);
             this.metroShell1.SystemText.MaximizeRibbonText = "&Maximize the Ribbon";
@@ -108,6 +117,54 @@
             // 
             this.metroTabItem2.Name = "metroTabItem2";
             this.metroTabItem2.Text = "&VIEW";
+            // 
+            // buttonItem1
+            // 
+            this.buttonItem1.Name = "buttonItem1";
+            this.buttonItem1.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.win7,
+            this.buttonItem3,
+            this.buttonItem4,
+            this.buttonItem5,
+            this.buttonItem2,
+            this.buttonItem6});
+            this.buttonItem1.Text = "主题";
+            // 
+            // win7
+            // 
+            this.win7.Name = "win7";
+            this.win7.Text = "Windows7Blue";
+            this.win7.Click += new System.EventHandler(this.buttonItem2_Click);
+            // 
+            // buttonItem3
+            // 
+            this.buttonItem3.Name = "buttonItem3";
+            this.buttonItem3.Text = "VisualStudio2012Light";
+            this.buttonItem3.Click += new System.EventHandler(this.buttonItem3_Click);
+            // 
+            // buttonItem4
+            // 
+            this.buttonItem4.Name = "buttonItem4";
+            this.buttonItem4.Text = "VisualStudio2012Dark";
+            this.buttonItem4.Click += new System.EventHandler(this.buttonItem4_Click);
+            // 
+            // buttonItem5
+            // 
+            this.buttonItem5.Name = "buttonItem5";
+            this.buttonItem5.Text = "VisualStudio2010Blue";
+            this.buttonItem5.Click += new System.EventHandler(this.buttonItem5_Click);
+            // 
+            // buttonItem2
+            // 
+            this.buttonItem2.Name = "buttonItem2";
+            this.buttonItem2.Text = "OfficeMobile2014";
+            this.buttonItem2.Click += new System.EventHandler(this.buttonItem2_Click_1);
+            // 
+            // buttonItem6
+            // 
+            this.buttonItem6.Name = "buttonItem6";
+            this.buttonItem6.Text = "Office2016";
+            this.buttonItem6.Click += new System.EventHandler(this.buttonItem6_Click);
             // 
             // metroStatusBar1
             // 
@@ -189,6 +246,13 @@
         private DevComponents.DotNetBar.Metro.MetroStatusBar metroStatusBar1;
         private DevComponents.DotNetBar.Metro.MetroTilePanel metroTilePanel1;
         private DevComponents.DotNetBar.ItemContainer itemContainer1;
+        private DevComponents.DotNetBar.ButtonItem buttonItem1;
+        private DevComponents.DotNetBar.ButtonItem win7;
+        private DevComponents.DotNetBar.ButtonItem buttonItem3;
+        private DevComponents.DotNetBar.ButtonItem buttonItem4;
+        private DevComponents.DotNetBar.ButtonItem buttonItem5;
+        private DevComponents.DotNetBar.ButtonItem buttonItem2;
+        private DevComponents.DotNetBar.ButtonItem buttonItem6;
 
     }
 }

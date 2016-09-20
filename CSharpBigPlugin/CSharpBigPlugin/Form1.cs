@@ -1,4 +1,5 @@
 ﻿using CSPluginKernel;
+using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Metro;
 using System;
 using System.Collections;
@@ -202,8 +203,35 @@ namespace CSharpBigPlugin
             }
         }
 
+        private void buttonItem2_Click(object sender, EventArgs e)
+        {
+            styleManager1.ManagerStyle = eStyle.Windows7Blue;
+        }
 
+        private void buttonItem3_Click(object sender, EventArgs e)
+        {
+            styleManager1.ManagerStyle = eStyle.VisualStudio2012Light;
+        }
 
+        private void buttonItem4_Click(object sender, EventArgs e)
+        {
+            styleManager1.ManagerStyle = eStyle.VisualStudio2012Dark;
+        }
+
+        private void buttonItem5_Click(object sender, EventArgs e)
+        {
+            styleManager1.ManagerStyle = eStyle.VisualStudio2010Blue;
+        }
+
+        private void buttonItem2_Click_1(object sender, EventArgs e)
+        {
+            styleManager1.ManagerStyle = eStyle.OfficeMobile2014;
+        }
+
+        private void buttonItem6_Click(object sender, EventArgs e)
+        {
+            styleManager1.ManagerStyle = eStyle.Office2016;
+        }
 
     }
 }
