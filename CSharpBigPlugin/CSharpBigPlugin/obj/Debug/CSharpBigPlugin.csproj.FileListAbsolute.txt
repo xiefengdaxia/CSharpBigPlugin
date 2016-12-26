@@ -8,3 +8,5 @@ E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\obj\Debug\CS
 E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\obj\Debug\CSharpBigPlugin.csprojResolveAssemblyReference.cache
 E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\bin\Debug\CSHelper.dll
 E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\bin\Debug\CSHelper.pdb
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\bin\Debug\DevComponents.DotNetBar2.dll
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\bin\Debug\DevComponents.DotNetBar2.xml

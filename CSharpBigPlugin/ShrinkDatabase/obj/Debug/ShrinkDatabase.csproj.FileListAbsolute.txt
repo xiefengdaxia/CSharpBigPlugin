@@ -1,0 +1,10 @@
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\ShrinkDatabase\bin\Debug\ShrinkDatabase.exe
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\ShrinkDatabase\bin\Debug\ShrinkDatabase.pdb
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\ShrinkDatabase\bin\Debug\CSHelper.dll
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\ShrinkDatabase\bin\Debug\CSHelper.pdb
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\ShrinkDatabase\obj\Debug\ShrinkDatabase.csprojResolveAssemblyReference.cache
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\ShrinkDatabase\obj\Debug\ShrinkDatabase.Form1.resources
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\ShrinkDatabase\obj\Debug\ShrinkDatabase.Properties.Resources.resources
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\ShrinkDatabase\obj\Debug\ShrinkDatabase.csproj.GenerateResource.Cache
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\ShrinkDatabase\obj\Debug\ShrinkDatabase.exe
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\ShrinkDatabase\obj\Debug\ShrinkDatabase.pdb

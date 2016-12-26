@@ -1,0 +1,12 @@
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\BuildTriggerAndAuditTable\obj\Debug\BuildTriggerAndAuditTable.csprojResolveAssemblyReference.cache
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\BuildTriggerAndAuditTable\obj\Debug\BuildTriggerAndAuditTable.Form1.resources
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\BuildTriggerAndAuditTable\obj\Debug\BuildTriggerAndAuditTable.Properties.Resources.resources
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\BuildTriggerAndAuditTable\obj\Debug\BuildTriggerAndAuditTable.csproj.GenerateResource.Cache
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\BuildTriggerAndAuditTable\bin\Debug\CSHelper.dll
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\BuildTriggerAndAuditTable\bin\Debug\CSHelper.pdb
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\BuildTriggerAndAuditTable\bin\Debug\创建触发器和审计表.dll
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\BuildTriggerAndAuditTable\bin\Debug\创建触发器和审计表.pdb
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\BuildTriggerAndAuditTable\bin\Debug\CSPluginKernel.dll
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\BuildTriggerAndAuditTable\bin\Debug\CSPluginKernel.pdb
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\BuildTriggerAndAuditTable\obj\Debug\创建触发器和审计表.dll
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\BuildTriggerAndAuditTable\obj\Debug\创建触发器和审计表.pdb

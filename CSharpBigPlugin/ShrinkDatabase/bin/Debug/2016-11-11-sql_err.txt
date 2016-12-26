@@ -1,0 +1,11 @@
+2016-11-11 17:08:58 : if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[tableinfo]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+                drop table [dbo].tableinfo
+                CREATE TABLE [dbo].tableinfo(
+                 表名 [varchar](50) NULL,
+                 记录数 [int] NULL,
+                 预留空间 [varchar](50)  NULL,
+                 使用空间 [varchar](50)  NULL,
+                 索引占用空间 [varchar](50)  NULL,
+                 未用空间 [varchar](50) NULL
+                )数据库中已存在名为 'tableinfo' 的对象。
+
