@@ -37,12 +37,13 @@ namespace ShrinkDatabase
 
         public void ShowTableInfo(int selectRow)
         {
-            dgvTable.DataSource = null;
+            
             //耗时操作在后台进程进行
             Thread worker = new Thread(delegate()
               {
                   try
                   {
+                      //dgvTable.DataSource = null;
                       ShowLoading(true);
                       ApendLog("正在刷新列表");
                       string sql = @"if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[tableinfo]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
@@ -103,7 +104,7 @@ namespace ShrinkDatabase
         {
             if (dgvTable.InvokeRequired)
             {
-                this.Invoke(new UpdateDataGridView(UpdateGV), new object[] { dt,selectRow });
+                this.Invoke(new UpdateDataGridView(UpdateGV), new object[] { dt, selectRow });
             }
             else
             {
@@ -112,12 +113,19 @@ namespace ShrinkDatabase
                 if (selectRow != 0)
                 {
                     dgvTable.Rows[selectRow].Selected = true;
-                    dgvTable.FirstDisplayedScrollingRowIndex = selectRow; 
+                    dgvTable.FirstDisplayedScrollingRowIndex = selectRow;
                     //ApendLog(selectRow.ToString());
                     //非常奇怪的问题，当前行数与选择的行索引不一样
                     UpdateCurrentTableName(dgvTable.Rows[selectRow].Cells["tableName"].Value.ToString());
                 }
             }
+
+            //Invoke(new MethodInvoker(delegate()
+            //{
+            //    dgvTable.DataSource = dt;
+            //    dgvTable.FirstDisplayedScrollingRowIndex = selectRow;
+            //    UpdateCurrentTableName(dgvTable.Rows[selectRow].Cells["tableName"].Value.ToString());
+            //}));
         }
 
         /// <summary>
@@ -186,8 +194,8 @@ namespace ShrinkDatabase
                         sw.Start();
                         ShowLoading(true);
                         ApendLog(string.Format("正在对表[{0}]重建索引", CurrentTableName.Text));
-                        CSHelper.exec_sql(string.Format("DBCC DBREINDEX ({0}, '', 90)  ", CurrentTableName.Text));
-                       
+                        //CSHelper.exec_sql(string.Format("DBCC DBREINDEX ({0}, '', 90)  ", CurrentTableName.Text));
+
                     }
                     catch (Exception ex)
                     {
