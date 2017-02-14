@@ -1,0 +1,13 @@
+2017-02-14 17:11:23 : if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[tableinfo]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+                drop table [dbo].tableinfo
+                CREATE TABLE [dbo].tableinfo(
+                 表名 [varchar](50) NULL,
+                 记录数 [int] NULL,
+                 预留空间 [varchar](50)  NULL,
+                 使用空间 [varchar](50)  NULL,
+                 索引占用空间 [varchar](50)  NULL,
+                 未用空间 [varchar](50) NULL
+                )在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: SQL 网络接口, error: 26 - 定位指定的服务器/实例时出错)
+
+2017-02-14 17:11:24 : insert into tableinfo(表名, 记录数, 预留空间, 使用空间, 索引占用空间, 未用空间) exec sp_MSforeachtable "exec sp_spaceused '?'"在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: SQL 网络接口, error: 26 - 定位指定的服务器/实例时出错)
+

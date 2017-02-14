@@ -195,6 +195,40 @@ public static class CSHelper
     }
     #endregion
 
+    #region 返回第一列第一行
+    /// <summary>
+    /// 返回第一列第一行
+    /// </summary>
+    /// <param name="sql">查询sql</param>
+    /// <returns>字符串</returns>
+    public static string ExecuteScalar(string sql)
+    {
+        string result = "";
+        SqlConnection conn = new SqlConnection(CSHelper.sqlconn);
+        try
+        {
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            conn.Open();
+            result = cmd.ExecuteScalar().ToString();
+
+        }
+        catch (Exception ex)
+        {
+            CSHelper.saveErrLog(sql + ex.Message, DateTime.Now.ToString("yyyy-MM-dd") + "-sql_err");
+            return result;
+        }
+
+        finally
+        {
+            conn.Close();
+            conn.Dispose();
+        }
+
+        return result;
+    } 
+    #endregion
+
     #region //明华IC读写器
 
     public static int icdev; // 通讯设备标识符

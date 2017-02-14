@@ -37,7 +37,7 @@ namespace ShrinkDatabase
 
         public void ShowTableInfo(int selectRow)
         {
-            
+
             //耗时操作在后台进程进行
             Thread worker = new Thread(delegate()
               {
@@ -70,7 +70,7 @@ namespace ShrinkDatabase
                       SqlDataAdapter huoche = new SqlDataAdapter(sql, conn);
                       DataSet ds = new DataSet();
                       huoche.Fill(ds, "tableinfo");
-                      UpdateGV(ds.Tables["tableinfo"],selectRow);
+                      UpdateGV(ds.Tables["tableinfo"], selectRow);
                       conn.Close();
                       conn.Dispose();
                   }
@@ -140,7 +140,7 @@ namespace ShrinkDatabase
                 pictureBox1.Visible = ifshow;
                 return true; //返回值
             }));
-            
+
         }
         /// <summary>
         /// 添加日志
@@ -150,7 +150,7 @@ namespace ShrinkDatabase
         {
             this.Invoke(new Func<bool>(delegate()
                 {
-                    richTextBox1.AppendText(DateTime.Now.ToString()+":"+text+"\n\r");
+                    richTextBox1.AppendText(DateTime.Now.ToString() + ":" + text + "\n\r");
                     richTextBox1.ScrollToCaret();
                     return true;
                 }));
@@ -167,25 +167,34 @@ namespace ShrinkDatabase
         private void dgvTable_SelectionChanged(object sender, EventArgs e)
         {
             //this.dgvTable.ClearSelection();
-                if (dgvTable.RowCount > 1)
+            if (dgvTable.RowCount > 1)
+            {
+                //MessageBox.Show(dgvTable.CurrentRow.Cells.ToString());
+                if (dgvTable.CurrentRow.Cells["tableName"].Value != null)
                 {
-                    //MessageBox.Show(dgvTable.CurrentRow.Cells.ToString());
-                    if (dgvTable.CurrentRow.Cells["tableName"].Value != null)
-                    {
-                        CurrentTableName.Text = dgvTable.CurrentRow.Cells["tableName"].Value.ToString();
-                        selectRow = dgvTable.CurrentRow.Index;
-                    }
+                    CurrentTableName.Text = dgvTable.CurrentRow.Cells["tableName"].Value.ToString();
+                    selectRow = dgvTable.CurrentRow.Index;
                 }
-            
+            }
+
         }
 
         public bool isRuning = true;
         private void button2_Click(object sender, EventArgs e)
         {
-            
-            if(string.IsNullOrEmpty(CurrentTableName.Text))
+            //如果没有选中表，则不执行
+            if (string.IsNullOrEmpty(CurrentTableName.Text))
                 return;
-           
+
+            //是否含有聚集索引
+            bool hasClusteredIndex = (CSHelper.ifExist("select count(*) from sys.indexes where object_id=OBJECT_ID('" + CurrentTableName.Text + "') and type_desc='CLUSTERED'; ")==1);
+            //if (!hasClusteredIndex)
+            //{
+            //    MessageBox.Show("此表没有聚集索引，请先创建！");
+            //    return;
+            //}
+
+
             Thread worker = new Thread(delegate()
                 {
                     Stopwatch sw = new Stopwatch();
@@ -193,9 +202,24 @@ namespace ShrinkDatabase
                     {
                         sw.Start();
                         ShowLoading(true);
-                        ApendLog(string.Format("正在对表[{0}]重建索引", CurrentTableName.Text));
-                        //CSHelper.exec_sql(string.Format("DBCC DBREINDEX ({0}, '', 90)  ", CurrentTableName.Text));
 
+                        if (hasClusteredIndex)
+                        {
+                            ApendLog(string.Format("正在对表[{0}]重建索引", CurrentTableName.Text));
+                            CSHelper.exec_sql(string.Format("DBCC DBREINDEX ({0}, '', 90)  ", CurrentTableName.Text));
+                        }
+                        else
+                        {
+                            ApendLog(string.Format("准备对表[{0}]建立索引", CurrentTableName.Text));
+
+                            var field = CSHelper.ExecuteScalar(string.Format("Select top 1 name from syscolumns Where ID=OBJECT_ID('{0}')", CurrentTableName.Text));
+                            ApendLog(string.Format("查出表[{0}]第一个字段为：{1}", CurrentTableName.Text, field));
+                            ApendLog(string.Format("正在为表[{0}]字段[{1}]建立临时ClusteredIndex索引...时间比较久", CurrentTableName.Text, field));
+                            CSHelper.exec_sql(string.Format("create clustered index ClusteredIndex on {0}({1}) ", CurrentTableName.Text, field));
+                           
+                            ApendLog(string.Format("删除临时索引中..."));
+                            CSHelper.exec_sql(string.Format("DROP INDEX {0}.ClusteredIndex ", CurrentTableName.Text, field));
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -218,7 +242,7 @@ namespace ShrinkDatabase
         System.Timers.Timer t;
         void t_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            ApendLog("计时器判断重建索引状态:" + isRuning);
+            //ApendLog("计时器判断重建索引状态:" + isRuning);
             if (!isRuning)
             {
                 ApendLog("计时器开始执行显示列表！");
@@ -233,8 +257,8 @@ namespace ShrinkDatabase
 
         private void button3_Click(object sender, EventArgs e)
         {
-           
-            var Database =CSHelper.ReadINI("Connection", "Database");
+
+            var Database = CSHelper.ReadINI("Connection", "Database");
             if (!string.IsNullOrEmpty(Database))
             {
                 Thread worker = new Thread(delegate()
@@ -244,11 +268,11 @@ namespace ShrinkDatabase
                     {
                         sw.Start();
                         ShowLoading(true);
-                        ApendLog(string.Format("正在对数据库[{0}]进行收缩",Database));
+                        ApendLog(string.Format("正在对数据库[{0}]进行收缩", Database));
                         ApendLog("-----------------------收缩前大小----------------------------------");
                         countDatabaseSize(Database);
                         CSHelper.exec_sql(string.Format("DBCC SHRINKDATABASE ({0})  ", Database));
-                        
+
                     }
                     catch (Exception ex)
                     {
@@ -258,7 +282,7 @@ namespace ShrinkDatabase
                     {
                         sw.Stop();
                         TimeSpan ts = sw.Elapsed;
-                        ApendLog("数据库收缩完成,耗时:" + string.Format("{0}时{1}分{2}秒{3}毫秒",ts.Hours,ts.Minutes,ts.Seconds,ts.Milliseconds));
+                        ApendLog("数据库收缩完成,耗时:" + string.Format("{0}时{1}分{2}秒{3}毫秒", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds));
                         ApendLog("-----------------------收缩后大小----------------------------------");
                         countDatabaseSize(Database);
                         ShowLoading(false);
@@ -266,7 +290,7 @@ namespace ShrinkDatabase
                 });
                 worker.IsBackground = true;
                 worker.Start();
-               
+
             }
         }
         /// <summary>
@@ -276,7 +300,7 @@ namespace ShrinkDatabase
         public void countDatabaseSize(string dbname)
         {
             //SqlServer是以8k为一页
-            var sql = "select name, convert(float,size) * (8192.0/1024.0)/1024. size from "+dbname+".dbo.sysfiles";
+            var sql = "select name, convert(float,size) * (8192.0/1024.0)/1024. size from " + dbname + ".dbo.sysfiles";
             SqlConnection conn = new SqlConnection(CSHelper.sqlconn);
             try
             {
@@ -285,14 +309,14 @@ namespace ShrinkDatabase
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    ApendLog("文件名:"+dr.GetValue(0).ToString()+" 大小:"+dr.GetValue(1).ToString()+"M");
+                    ApendLog("文件名:" + dr.GetValue(0).ToString() + " 大小:" + dr.GetValue(1).ToString() + "M");
                 }
             }
             catch (Exception ex)
             {
 
                 CSHelper.saveErrLog(sql + ex.Message, DateTime.Now.ToString("yyyy-MM-dd") + "-sql_err");
-               
+
             }
 
             finally
