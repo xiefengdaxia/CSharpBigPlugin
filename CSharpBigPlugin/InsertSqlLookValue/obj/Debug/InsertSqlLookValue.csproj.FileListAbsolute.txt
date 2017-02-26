@@ -8,3 +8,13 @@ E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\InsertSqlLookValue\bin\Debug
 E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\InsertSqlLookValue\bin\Debug\CSPluginKernel.pdb
 E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\InsertSqlLookValue\obj\Debug\sql插入语句转json.dll
 E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\InsertSqlLookValue\obj\Debug\sql插入语句转json.pdb
+E:\project\CSharpBigPlugin\CSharpBigPlugin\InsertSqlLookValue\bin\Debug\sql插入语句转json.dll
+E:\project\CSharpBigPlugin\CSharpBigPlugin\InsertSqlLookValue\bin\Debug\sql插入语句转json.pdb
+E:\project\CSharpBigPlugin\CSharpBigPlugin\InsertSqlLookValue\bin\Debug\CSPluginKernel.dll
+E:\project\CSharpBigPlugin\CSharpBigPlugin\InsertSqlLookValue\bin\Debug\CSPluginKernel.pdb
+E:\project\CSharpBigPlugin\CSharpBigPlugin\InsertSqlLookValue\obj\Debug\InsertSqlLookValue.csprojResolveAssemblyReference.cache
+E:\project\CSharpBigPlugin\CSharpBigPlugin\InsertSqlLookValue\obj\Debug\InsertSqlLookValue.Form1.resources
+E:\project\CSharpBigPlugin\CSharpBigPlugin\InsertSqlLookValue\obj\Debug\InsertSqlLookValue.Properties.Resources.resources
+E:\project\CSharpBigPlugin\CSharpBigPlugin\InsertSqlLookValue\obj\Debug\InsertSqlLookValue.csproj.GenerateResource.Cache
+E:\project\CSharpBigPlugin\CSharpBigPlugin\InsertSqlLookValue\obj\Debug\sql插入语句转json.dll
+E:\project\CSharpBigPlugin\CSharpBigPlugin\InsertSqlLookValue\obj\Debug\sql插入语句转json.pdb

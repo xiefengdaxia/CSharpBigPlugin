@@ -1,0 +1,8 @@
+E:\project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\bin\Debug\MSsqlTools.exe
+E:\project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\bin\Debug\MSsqlTools.pdb
+E:\project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\obj\Debug\MSsqlTools.Form1.resources
+E:\project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\obj\Debug\MSsqlTools.Properties.Resources.resources
+E:\project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\obj\Debug\MSsqlTools.csproj.GenerateResource.Cache
+E:\project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\obj\Debug\MSsqlTools.exe
+E:\project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\obj\Debug\MSsqlTools.pdb
+E:\project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\obj\Debug\MSsqlTools.UpdatePort.resources

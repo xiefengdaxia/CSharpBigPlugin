@@ -10,3 +10,15 @@ E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\BuildAndExecuteSQL\bin\Debug
 E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\BuildAndExecuteSQL\bin\Debug\批量生成和执行sql脚本.pdb
 E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\BuildAndExecuteSQL\obj\Debug\批量生成和执行sql脚本.dll
 E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\BuildAndExecuteSQL\obj\Debug\批量生成和执行sql脚本.pdb
+E:\project\CSharpBigPlugin\CSharpBigPlugin\BuildAndExecuteSQL\bin\Debug\批量生成和执行sql脚本.dll
+E:\project\CSharpBigPlugin\CSharpBigPlugin\BuildAndExecuteSQL\bin\Debug\批量生成和执行sql脚本.pdb
+E:\project\CSharpBigPlugin\CSharpBigPlugin\BuildAndExecuteSQL\bin\Debug\CSHelper.dll
+E:\project\CSharpBigPlugin\CSharpBigPlugin\BuildAndExecuteSQL\bin\Debug\CSPluginKernel.dll
+E:\project\CSharpBigPlugin\CSharpBigPlugin\BuildAndExecuteSQL\bin\Debug\CSPluginKernel.pdb
+E:\project\CSharpBigPlugin\CSharpBigPlugin\BuildAndExecuteSQL\bin\Debug\CSHelper.pdb
+E:\project\CSharpBigPlugin\CSharpBigPlugin\BuildAndExecuteSQL\obj\Debug\BuildAndExecuteSQL.csprojResolveAssemblyReference.cache
+E:\project\CSharpBigPlugin\CSharpBigPlugin\BuildAndExecuteSQL\obj\Debug\BuildAndExecuteSQL.Form1.resources
+E:\project\CSharpBigPlugin\CSharpBigPlugin\BuildAndExecuteSQL\obj\Debug\BuildAndExecuteSQL.Properties.Resources.resources
+E:\project\CSharpBigPlugin\CSharpBigPlugin\BuildAndExecuteSQL\obj\Debug\BuildAndExecuteSQL.csproj.GenerateResource.Cache
+E:\project\CSharpBigPlugin\CSharpBigPlugin\BuildAndExecuteSQL\obj\Debug\批量生成和执行sql脚本.dll
+E:\project\CSharpBigPlugin\CSharpBigPlugin\BuildAndExecuteSQL\obj\Debug\批量生成和执行sql脚本.pdb

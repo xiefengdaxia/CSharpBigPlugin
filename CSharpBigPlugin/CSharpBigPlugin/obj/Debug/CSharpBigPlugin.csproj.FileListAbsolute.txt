@@ -10,3 +10,13 @@ E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\bin\Debug\CS
 E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\bin\Debug\CSHelper.pdb
 E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\bin\Debug\DevComponents.DotNetBar2.dll
 E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\bin\Debug\DevComponents.DotNetBar2.xml
+E:\project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\bin\Debug\CSharpBigPlugin.exe
+E:\project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\bin\Debug\CSharpBigPlugin.pdb
+E:\project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\bin\Debug\CSHelper.dll
+E:\project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\bin\Debug\CSHelper.pdb
+E:\project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\obj\Debug\CSharpBigPlugin.csprojResolveAssemblyReference.cache
+E:\project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\obj\Debug\CSharpBigPlugin.Form1.resources
+E:\project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\obj\Debug\CSharpBigPlugin.Properties.Resources.resources
+E:\project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\obj\Debug\CSharpBigPlugin.csproj.GenerateResource.Cache
+E:\project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\obj\Debug\CSharpBigPlugin.exe
+E:\project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\obj\Debug\CSharpBigPlugin.pdb

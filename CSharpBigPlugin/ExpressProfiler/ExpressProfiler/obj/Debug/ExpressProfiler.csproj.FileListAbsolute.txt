@@ -33,3 +33,16 @@ E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\ExpressProfiler\ExpressProfi
 E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\ExpressProfiler\ExpressProfiler\obj\Debug\ExpressProfiler.csproj.GenerateResource.Cache
 E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\ExpressProfiler\ExpressProfiler\obj\Debug\事件探查器v2.1.dll
 E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\ExpressProfiler\ExpressProfiler\obj\Debug\事件探查器v2.1.pdb
+E:\project\CSharpBigPlugin\CSharpBigPlugin\ExpressProfiler\ExpressProfiler\bin\Debug\事件探查器v2.1.dll.config
+E:\project\CSharpBigPlugin\CSharpBigPlugin\ExpressProfiler\ExpressProfiler\bin\Debug\事件探查器v2.1.dll
+E:\project\CSharpBigPlugin\CSharpBigPlugin\ExpressProfiler\ExpressProfiler\bin\Debug\事件探查器v2.1.pdb
+E:\project\CSharpBigPlugin\CSharpBigPlugin\ExpressProfiler\ExpressProfiler\bin\Debug\CSPluginKernel.dll
+E:\project\CSharpBigPlugin\CSharpBigPlugin\ExpressProfiler\ExpressProfiler\bin\Debug\CSPluginKernel.pdb
+E:\project\CSharpBigPlugin\CSharpBigPlugin\ExpressProfiler\ExpressProfiler\obj\Debug\ExpressProfiler.csprojResolveAssemblyReference.cache
+E:\project\CSharpBigPlugin\CSharpBigPlugin\ExpressProfiler\ExpressProfiler\obj\Debug\ExpressProfiler.FindForm.resources
+E:\project\CSharpBigPlugin\CSharpBigPlugin\ExpressProfiler\ExpressProfiler\obj\Debug\ExpressProfiler.MainForm.resources
+E:\project\CSharpBigPlugin\CSharpBigPlugin\ExpressProfiler\ExpressProfiler\obj\Debug\ExpressProfiler.Properties.Resources.resources
+E:\project\CSharpBigPlugin\CSharpBigPlugin\ExpressProfiler\ExpressProfiler\obj\Debug\ExpressProfiler.TraceProperties.resources
+E:\project\CSharpBigPlugin\CSharpBigPlugin\ExpressProfiler\ExpressProfiler\obj\Debug\ExpressProfiler.csproj.GenerateResource.Cache
+E:\project\CSharpBigPlugin\CSharpBigPlugin\ExpressProfiler\ExpressProfiler\obj\Debug\事件探查器v2.1.dll
+E:\project\CSharpBigPlugin\CSharpBigPlugin\ExpressProfiler\ExpressProfiler\obj\Debug\事件探查器v2.1.pdb
