@@ -1,6 +1,6 @@
 ﻿namespace MSsqlTools
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.btnInstall = new System.Windows.Forms.Button();
             this.btnUninstall = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnUpdatePort = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.btnUpdatePWD = new System.Windows.Forms.Button();
+            this.btnBackup = new System.Windows.Forms.Button();
+            this.btnRestoreDB = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -50,29 +50,33 @@
             this.txtRemoteConn = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnInstall
             // 
-            this.btnInstall.Location = new System.Drawing.Point(456, 12);
+            this.btnInstall.Location = new System.Drawing.Point(441, 12);
             this.btnInstall.Name = "btnInstall";
             this.btnInstall.Size = new System.Drawing.Size(75, 23);
             this.btnInstall.TabIndex = 0;
             this.btnInstall.Text = "一键安装";
             this.btnInstall.UseVisualStyleBackColor = true;
+            this.btnInstall.Click += new System.EventHandler(this.btnInstall_Click);
             // 
             // btnUninstall
             // 
-            this.btnUninstall.Location = new System.Drawing.Point(456, 41);
+            this.btnUninstall.Location = new System.Drawing.Point(441, 41);
             this.btnUninstall.Name = "btnUninstall";
             this.btnUninstall.Size = new System.Drawing.Size(75, 23);
             this.btnUninstall.TabIndex = 0;
             this.btnUninstall.Text = "一键卸载";
             this.btnUninstall.UseVisualStyleBackColor = true;
+            this.btnUninstall.Click += new System.EventHandler(this.btnUninstall_Click);
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(456, 70);
+            this.btnStart.Location = new System.Drawing.Point(441, 70);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 23);
             this.btnStart.TabIndex = 0;
@@ -82,7 +86,7 @@
             // 
             // btnStop
             // 
-            this.btnStop.Location = new System.Drawing.Point(456, 99);
+            this.btnStop.Location = new System.Drawing.Point(441, 99);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(75, 23);
             this.btnStop.TabIndex = 0;
@@ -92,7 +96,7 @@
             // 
             // btnUpdatePort
             // 
-            this.btnUpdatePort.Location = new System.Drawing.Point(456, 128);
+            this.btnUpdatePort.Location = new System.Drawing.Point(441, 128);
             this.btnUpdatePort.Name = "btnUpdatePort";
             this.btnUpdatePort.Size = new System.Drawing.Size(75, 23);
             this.btnUpdatePort.TabIndex = 0;
@@ -100,36 +104,39 @@
             this.btnUpdatePort.UseVisualStyleBackColor = true;
             this.btnUpdatePort.Click += new System.EventHandler(this.btnUpdatePort_Click);
             // 
-            // button6
+            // btnUpdatePWD
             // 
-            this.button6.Location = new System.Drawing.Point(456, 157);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 0;
-            this.button6.Text = "修改sa密码";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnUpdatePWD.Location = new System.Drawing.Point(441, 157);
+            this.btnUpdatePWD.Name = "btnUpdatePWD";
+            this.btnUpdatePWD.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdatePWD.TabIndex = 0;
+            this.btnUpdatePWD.Text = "修改sa密码";
+            this.btnUpdatePWD.UseVisualStyleBackColor = true;
+            this.btnUpdatePWD.Click += new System.EventHandler(this.btnUpdatePWD_Click);
             // 
-            // button7
+            // btnBackup
             // 
-            this.button7.Location = new System.Drawing.Point(456, 186);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 0;
-            this.button7.Text = "备份数据库";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnBackup.Location = new System.Drawing.Point(441, 186);
+            this.btnBackup.Name = "btnBackup";
+            this.btnBackup.Size = new System.Drawing.Size(75, 23);
+            this.btnBackup.TabIndex = 0;
+            this.btnBackup.Text = "备份数据库";
+            this.btnBackup.UseVisualStyleBackColor = true;
+            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
             // 
-            // button8
+            // btnRestoreDB
             // 
-            this.button8.Location = new System.Drawing.Point(456, 215);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 0;
-            this.button8.Text = "还原数据库";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnRestoreDB.Location = new System.Drawing.Point(441, 215);
+            this.btnRestoreDB.Name = "btnRestoreDB";
+            this.btnRestoreDB.Size = new System.Drawing.Size(75, 23);
+            this.btnRestoreDB.TabIndex = 0;
+            this.btnRestoreDB.Text = "还原数据库";
+            this.btnRestoreDB.UseVisualStyleBackColor = true;
+            this.btnRestoreDB.Click += new System.EventHandler(this.btnRestoreDB_Click);
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(456, 244);
+            this.button9.Location = new System.Drawing.Point(441, 244);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(75, 23);
             this.button9.TabIndex = 0;
@@ -174,7 +181,7 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(456, 273);
+            this.button10.Location = new System.Drawing.Point(441, 273);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(75, 23);
             this.button10.TabIndex = 0;
@@ -183,7 +190,7 @@
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(456, 302);
+            this.button11.Location = new System.Drawing.Point(441, 302);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(75, 23);
             this.button11.TabIndex = 0;
@@ -193,7 +200,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(195, 23);
+            this.label3.Location = new System.Drawing.Point(211, 23);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 12);
             this.label3.TabIndex = 1;
@@ -202,7 +209,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(195, 66);
+            this.label4.Location = new System.Drawing.Point(211, 66);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 12);
             this.label4.TabIndex = 1;
@@ -210,7 +217,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(260, 19);
+            this.textBox3.Location = new System.Drawing.Point(276, 19);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(127, 21);
@@ -219,7 +226,7 @@
             // 
             // txtRemoteConn
             // 
-            this.txtRemoteConn.Location = new System.Drawing.Point(260, 60);
+            this.txtRemoteConn.Location = new System.Drawing.Point(276, 60);
             this.txtRemoteConn.Name = "txtRemoteConn";
             this.txtRemoteConn.ReadOnly = true;
             this.txtRemoteConn.Size = new System.Drawing.Size(127, 21);
@@ -227,27 +234,48 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(25, 130);
+            this.richTextBox1.Location = new System.Drawing.Point(25, 119);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(362, 166);
+            this.richTextBox1.Size = new System.Drawing.Size(378, 177);
             this.richTextBox1.TabIndex = 3;
             this.richTextBox1.Text = "";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(23, 104);
+            this.label5.Location = new System.Drawing.Point(23, 100);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(35, 12);
             this.label5.TabIndex = 1;
             this.label5.Text = "日志:";
             // 
-            // Form1
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(166, 307);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(239, 12);
+            this.linkLabel1.TabIndex = 5;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Microsoft SQL Management Studio Express";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(23, 307);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(137, 12);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "如需更丰富的体验请下载";
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(543, 332);
+            this.ClientSize = new System.Drawing.Size(529, 332);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.txtRemoteConn);
             this.Controls.Add(this.txtStatus);
@@ -261,9 +289,9 @@
             this.Controls.Add(this.button11);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.btnRestoreDB);
+            this.Controls.Add(this.btnBackup);
+            this.Controls.Add(this.btnUpdatePWD);
             this.Controls.Add(this.btnUpdatePort);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnStart);
@@ -271,7 +299,7 @@
             this.Controls.Add(this.btnInstall);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SqlServer 2008R2 控制台 1.0";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -288,9 +316,9 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Button btnUpdatePort;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnUpdatePWD;
+        private System.Windows.Forms.Button btnBackup;
+        private System.Windows.Forms.Button btnRestoreDB;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
@@ -304,6 +332,8 @@
         private System.Windows.Forms.TextBox txtRemoteConn;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label6;
     }
 }
 

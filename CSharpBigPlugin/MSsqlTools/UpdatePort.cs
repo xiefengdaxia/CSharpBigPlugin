@@ -20,7 +20,7 @@ namespace MSsqlTools
 
         private void UpdatePort_Load(object sender, EventArgs e)
         {
-            txtPort.Text = Form1.port;
+            txtPort.Text = MainForm.port;
 
         }
 
@@ -38,7 +38,7 @@ namespace MSsqlTools
             UpdatePortInRegedit("SOFTWARE\\WOW6432Node\\Microsoft\\Microsoft SQL Server\\MSSQL10_50.XSQL2008\\MSSQLServer\\SuperSocketNetLib\\Tcp\\IPAll\\", "TcpPort", txtPort.Text.Trim());
             MessageBox.Show("修改端口重启才可生效！正在重启中...");
 
-            ServiceController service = Form1.server;
+            ServiceController service = MainForm.server;
             try
             {
                 if (service.Status == ServiceControllerStatus.Running)
