@@ -63,9 +63,14 @@ namespace MSsqlTools
             }
             try
             {
-                //restore filelistonly from disk='C:\Users\cangfeng\Desktop\master-2017-02-27.bak'
-                //http://www.360doc.com/content/13/0217/06/551980_266056951.shtml
-                var RestoreSql = string.Format(@"restore database [{2}] from disk='{0}' with move '{2}' to '{1}\{2}.MDF',move '{2}_log' to '{1}\{2}_LOG.LDF' ",txtFromFile.Text,txtToPath.Text,txtReName.Text);
+                var sql=string.Format("restore filelistonly from disk='{0}'",txtFromFile.Text);
+                var list = DBHelper.QuerySql(sql);
+                if (list.Count == 0)
+                {
+                    MessageBox.Show("错误，是否选择了不正确的备份文件？");
+                    return;
+                }
+                var RestoreSql = string.Format(@"restore database [{2}] from disk='{0}' with move '{3}' to '{1}\{2}.MDF',move '{4}' to '{1}\{2}_LOG.LDF' ",txtFromFile.Text,txtToPath.Text,txtReName.Text,list[0],list[1]);
                 DBHelper.execSql(RestoreSql);
                 MessageBox.Show("恢复完成！");
             }

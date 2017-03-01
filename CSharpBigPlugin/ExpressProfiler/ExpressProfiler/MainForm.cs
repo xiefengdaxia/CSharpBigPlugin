@@ -186,7 +186,7 @@ namespace ExpressProfiler
 
             if (m_servername.Length == 0)
             {
-                m_servername = @".\sqlexpress";
+                m_servername = @".\xsql2008";
             }
 
 

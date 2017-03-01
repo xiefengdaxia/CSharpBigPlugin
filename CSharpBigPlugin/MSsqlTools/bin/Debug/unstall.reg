@@ -1,5 +1,0 @@
-Windows Registry Editor Version 5.00
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL]
-"XSQL2008"=-
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\XSQL2008]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\MSSQL10_50.XSQL2008]
