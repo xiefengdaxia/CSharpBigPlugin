@@ -10,3 +10,4 @@ E:\project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\obj\Debug\MSsqlTools.Backu
 E:\project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\obj\Debug\MSsqlTools.MainForm.resources
 E:\project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\obj\Debug\MSsqlTools.csprojResolveAssemblyReference.cache
 E:\project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\obj\Debug\MSsqlTools.RestoreDB.resources
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\obj\Debug\MSsqlTools.exe
