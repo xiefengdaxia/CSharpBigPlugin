@@ -45,7 +45,7 @@
             this.btnOpenIsqlw = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtLocalConn = new System.Windows.Forms.TextBox();
             this.txtRemoteConn = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -57,6 +57,9 @@
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.捐赠ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.版权申明ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RbtnUseConn = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.label7 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -214,22 +217,21 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "远程连接:";
             // 
-            // textBox3
+            // txtLocalConn
             // 
-            this.textBox3.Location = new System.Drawing.Point(276, 39);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(127, 21);
-            this.textBox3.TabIndex = 2;
-            this.textBox3.Text = ".\\xsql2008";
+            this.txtLocalConn.Location = new System.Drawing.Point(276, 39);
+            this.txtLocalConn.Name = "txtLocalConn";
+            this.txtLocalConn.Size = new System.Drawing.Size(127, 21);
+            this.txtLocalConn.TabIndex = 2;
+            this.txtLocalConn.Text = ".\\xsql2008";
             // 
             // txtRemoteConn
             // 
             this.txtRemoteConn.Location = new System.Drawing.Point(276, 69);
             this.txtRemoteConn.Name = "txtRemoteConn";
-            this.txtRemoteConn.ReadOnly = true;
             this.txtRemoteConn.Size = new System.Drawing.Size(127, 21);
             this.txtRemoteConn.TabIndex = 2;
+            this.txtRemoteConn.TextChanged += new System.EventHandler(this.txtRemoteConn_TextChanged);
             // 
             // richTextBox1
             // 
@@ -316,18 +318,53 @@
             this.版权申明ToolStripMenuItem.Text = "版权申明";
             this.版权申明ToolStripMenuItem.Click += new System.EventHandler(this.版权申明ToolStripMenuItem_Click);
             // 
+            // RbtnUseConn
+            // 
+            this.RbtnUseConn.AutoSize = true;
+            this.RbtnUseConn.Checked = true;
+            this.RbtnUseConn.Location = new System.Drawing.Point(284, 97);
+            this.RbtnUseConn.Name = "RbtnUseConn";
+            this.RbtnUseConn.Size = new System.Drawing.Size(47, 16);
+            this.RbtnUseConn.TabIndex = 8;
+            this.RbtnUseConn.TabStop = true;
+            this.RbtnUseConn.Text = "本地";
+            this.RbtnUseConn.UseVisualStyleBackColor = true;
+            this.RbtnUseConn.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(347, 97);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(47, 16);
+            this.radioButton2.TabIndex = 8;
+            this.radioButton2.Text = "远程";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(211, 101);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(59, 12);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "使用连接:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(529, 332);
+            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.RbtnUseConn);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.txtRemoteConn);
             this.Controls.Add(this.txtStatus);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtLocalConn);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
@@ -378,7 +415,7 @@
         private System.Windows.Forms.Button btnOpenIsqlw;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtLocalConn;
         private System.Windows.Forms.TextBox txtRemoteConn;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label5;
@@ -390,6 +427,9 @@
         private System.Windows.Forms.ToolStripMenuItem 捐赠ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 版权申明ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 插件设置ToolStripMenuItem;
+        private System.Windows.Forms.RadioButton RbtnUseConn;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.Label label7;
     }
 }
 

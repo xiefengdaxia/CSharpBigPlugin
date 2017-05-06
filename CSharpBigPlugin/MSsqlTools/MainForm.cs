@@ -246,7 +246,11 @@ namespace MSsqlTools
                 sc start ""MSSQL$XSQL2008""";
             RunCmdCode(cmdcode);
             ApendLog("安装完成！");
-            Application.Restart();
+            var result = MessageBox.Show("需要重新启动!");
+            if (result == DialogResult.OK)
+            {
+                Application.Restart();
+            }
         }
 
         #region 根据路径创建Reg文件
@@ -599,7 +603,11 @@ namespace MSsqlTools
                 c:\Windows\SysWOW64\reg.exe import """ + path + @"\unstall.reg""";
             RunCmdCode(cmd);
             ApendLog("卸载完成！");
-            Application.Restart();
+            var result = MessageBox.Show("需要重新启动!");
+            if (result == DialogResult.OK)
+            {
+                Application.Restart();
+            }
         }
 
         private void btnUpdatePWD_Click(object sender, EventArgs e)
@@ -837,6 +845,27 @@ namespace MSsqlTools
         private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("xiefengdaxia123@163.com");
+        }
+
+        private void txtRemoteConn_TextChanged(object sender, EventArgs e)
+        {
+            //DBHelper.Server = txtRemoteConn.Text;
+            //DBHelper.connectionString = "";
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RbtnUseConn.Checked)
+            {
+                DBHelper.Server = txtLocalConn.Text;
+                DBHelper.getConn();
+            }
+            else
+            {
+                DBHelper.Server = txtRemoteConn.Text;
+                DBHelper.getConn();
+            }
+            MessageBox.Show(DBHelper.connectionString);
         }
 
     }
