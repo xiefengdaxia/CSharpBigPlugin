@@ -1,0 +1,10 @@
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSV2Mssql\bin\Debug\CSV2Mssql.exe
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSV2Mssql\bin\Debug\CSV2Mssql.pdb
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSV2Mssql\obj\Debug\CSV2Mssql.csprojResolveAssemblyReference.cache
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSV2Mssql\obj\Debug\CSV2Mssql.Form1.resources
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSV2Mssql\obj\Debug\CSV2Mssql.Properties.Resources.resources
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSV2Mssql\obj\Debug\CSV2Mssql.csproj.GenerateResource.Cache
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSV2Mssql\obj\Debug\CSV2Mssql.exe
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSV2Mssql\obj\Debug\CSV2Mssql.pdb
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSV2Mssql\bin\Debug\CSHelper.dll
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSV2Mssql\bin\Debug\CSHelper.pdb

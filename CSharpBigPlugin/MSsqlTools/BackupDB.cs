@@ -24,7 +24,7 @@ namespace MSsqlTools
             {
                 cbDBNames.Items.Add(item);
             }
-
+            cbDBNames.Text = cbDBNames.Items[0].ToString();
         }
 
         private void btnOpenFileDialog_Click(object sender, EventArgs e)

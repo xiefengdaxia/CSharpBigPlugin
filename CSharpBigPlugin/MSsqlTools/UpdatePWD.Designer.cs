@@ -32,11 +32,12 @@
             this.btnUpdatePWD = new System.Windows.Forms.Button();
             this.txtPWD = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(105, 65);
+            this.btnClose.Location = new System.Drawing.Point(105, 72);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 5;
@@ -46,7 +47,7 @@
             // 
             // btnUpdatePWD
             // 
-            this.btnUpdatePWD.Location = new System.Drawing.Point(24, 65);
+            this.btnUpdatePWD.Location = new System.Drawing.Point(24, 72);
             this.btnUpdatePWD.Name = "btnUpdatePWD";
             this.btnUpdatePWD.Size = new System.Drawing.Size(75, 23);
             this.btnUpdatePWD.TabIndex = 6;
@@ -71,11 +72,23 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "sa密码:";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(24, 49);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(89, 12);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "ps:默认密码是1";
+            // 
             // UpdatePWD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(202, 107);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnUpdatePWD);
             this.Controls.Add(this.txtPWD);
@@ -98,5 +111,6 @@
         private System.Windows.Forms.Button btnUpdatePWD;
         private System.Windows.Forms.TextBox txtPWD;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

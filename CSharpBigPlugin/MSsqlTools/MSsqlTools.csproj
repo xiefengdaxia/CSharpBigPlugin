@@ -68,6 +68,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttachDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AttachDB.Designer.cs">
+      <DependentUpon>AttachDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="BackupDB.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,12 @@
       <DependentUpon>BackupDB.cs</DependentUpon>
     </Compile>
     <Compile Include="DBHelper.cs" />
+    <Compile Include="Donate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Donate.Designer.cs">
+      <DependentUpon>Donate.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,8 +113,14 @@
     <Compile Include="UpdatePWD.Designer.cs">
       <DependentUpon>UpdatePWD.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AttachDB.resx">
+      <DependentUpon>AttachDB.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BackupDB.resx">
       <DependentUpon>BackupDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Donate.resx">
+      <DependentUpon>Donate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -147,6 +165,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CSPluginKernel\CSPluginKernel.csproj">
+      <Project>{4ddc6ef8-4050-40ad-a038-86ed9c33f4e9}</Project>
+      <Name>CSPluginKernel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -173,6 +173,6 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>copy /y $(TargetDir)$(TargetName).dll "E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\bin\Debug\plugins"</PostBuildEvent>
+    <PostBuildEvent>copy /y $(TargetDir)$(TargetName).dll "E:\project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\bin\Debug\plugins"</PostBuildEvent>
   </PropertyGroup>
 </Project>

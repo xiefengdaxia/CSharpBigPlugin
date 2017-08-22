@@ -11,10 +11,14 @@ using System.Data.SqlClient;
 using Microsoft.Win32;
 using System.IO;
 using System.Threading;
+using System.Reflection;
+using CSPluginKernel;
+using System.Collections;
+using System.Runtime.Remoting;
 
 namespace MSsqlTools
 {
-    public partial class MainForm : Form
+    public partial class MainForm : Form,CSPluginKernel.IApplicationObject
     {
         public MainForm()
         {
@@ -34,8 +38,16 @@ namespace MSsqlTools
             timer.Interval = 1000;
             timer.Elapsed += timer_Elapsed;
             timer.Start();
-           
 
+            try
+            {
+                //MessageBox.Show("1");
+                this.LoadAllPlugins();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
         }
 
         private void NewMethod(string ConnstrWindows)
@@ -607,5 +619,225 @@ namespace MSsqlTools
             RestoreDB form = new RestoreDB();
             form.ShowDialog();
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.microsoft.com/zh-cn/download/details.aspx?id=7593");
+
+        }
+
+        private void btnAttachDB_Click(object sender, EventArgs e)
+        {
+            AttachDB form = new AttachDB();
+            form.ShowDialog();
+        }
+
+        private void btnSqlProfiler_Click(object sender, EventArgs e)
+        {
+
+        }
+        private ArrayList plugins = new ArrayList();
+        //private System.Windows.Forms.MenuItem menuItem6;
+        private ArrayList piProperties = new ArrayList();
+        /// <summary>
+        /// CSPluginKernel.IPlugin  可以用XML来配置，以实现动态
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        private bool IsValidPlugin(Type t)
+        {
+            bool ret = false;
+            Type[] interfaces = t.GetInterfaces();
+            foreach (Type theInterface in interfaces)
+            {
+                if (theInterface.FullName == "CSPluginKernel.IPlugin")
+                {
+                    ret = true;
+                    break;
+                }
+            }
+            return ret;
+        }
+        private void LoadAllPlugins()
+        {
+            string[] files = Directory.GetFiles(Application.StartupPath + "\\plugins\\");
+            int i = 0;
+            PluginInfoAttribute typeAttribute = new PluginInfoAttribute();
+            foreach (string file in files)
+            {
+                string ext = file.Substring(file.LastIndexOf("."));
+                if (ext != ".dll") continue;
+                try
+                {
+                    Assembly tmp = Assembly.LoadFile(file);
+                    Type[] types = tmp.GetTypes();
+                    bool ok = false;
+                    foreach (Type t in types)
+                        if (IsValidPlugin(t))
+                        {
+                            plugins.Add(tmp.CreateInstance(t.FullName));
+                            object[] attbs = t.GetCustomAttributes(typeAttribute.GetType(), false);
+                            PluginInfoAttribute attribute = null;
+                            foreach (object attb in attbs)
+                            {
+                                if (attb is PluginInfoAttribute)
+                                {
+                                    attribute = (PluginInfoAttribute)attb;
+                                    attribute.Index = i;
+                                    i++;
+                                    ok = true;
+                                    break;
+                                }
+                            }
+
+                            if (attribute != null) this.piProperties.Add(attribute);
+                            else throw new Exception("未定义插件属性");
+
+                            if (ok) break;
+                        }
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show(err.Message);
+                }
+            }
+            foreach (PluginInfoAttribute pia in piProperties)
+            {
+
+
+                pia.Tag = AddContextMenu(pia.Name, 插件ToolStripMenuItem.DropDownItems, new EventHandler(MenuClicked));
+            }
+
+            foreach (IPlugin pi in plugins)
+            {
+                if (pi.Connect((IApplicationObject)this) == ConnectionResult.Connection_Success)
+                {
+                    pi.OnLoad();
+                }
+                else
+                {
+                    MessageBox.Show("Can not connect plugin!");
+                }
+            }
+        }
+
+        /// <summary>
+        /// 添加子菜单
+        /// </summary>
+        /// <param name="text">要显示的文字，如果为 - 则显示为分割线</param>
+        /// <param name="cms">要添加到的子菜单集合</param>
+        /// <param name="callback">点击时触发的事件</param>
+        /// <returns>生成的子菜单，如果为分隔条则返回null</returns>
+
+        ToolStripMenuItem AddContextMenu(string text, ToolStripItemCollection cms, EventHandler callback)
+        {
+            if (text == "-")
+            {
+                ToolStripSeparator tsp = new ToolStripSeparator();
+                cms.Add(tsp);
+                return null;
+            }
+            else if (!string.IsNullOrEmpty(text))
+            {
+                ToolStripMenuItem tsmi = new ToolStripMenuItem(text);
+                tsmi.Tag = text + "TAG";
+                if (callback != null) tsmi.Click += callback;
+                cms.Add(tsmi);
+
+                return tsmi;
+            }
+
+            return null;
+        }
+
+        void MenuClicked(object sender, EventArgs e)
+        {
+            foreach (PluginInfoAttribute pia in piProperties)
+                if (pia.Tag.Equals(sender))
+                    ((IPlugin)plugins[pia.Index]).Run();
+
+        }
+
+        #region IApplicationObject 成员
+
+        public void SetDelegate(Delegates whichOne, EventHandler target)
+        {
+            //switch (whichOne)
+            //{
+            //    case Delegates.Delegate_ActiveDocumentChanged:
+            //        this.tabDocs.SelectedIndexChanged += target;
+            //        break;
+            //}
+        }
+
+        public IDocumentObject[] QueryDocuments()
+        {
+            ArrayList list = new ArrayList();
+            //for (int i = 0; i < this.tabDocs.TabPages.Count; i++)
+            //    list.Add(tabDocs.TabPages[i].Tag);
+            return (IDocumentObject[])list.ToArray();
+        }
+
+        public IDocumentObject QueryCurrentDocument()
+        {
+            //if (tabDocs.SelectedIndex != -1)
+            //    return (IDocumentObject)this.tabDocs.SelectedTab.Tag;
+            //else
+            return null;
+        }
+
+        public void ShowInStatusBar(string msg)
+        {
+            // _Status.Panels[0].Text = msg;
+        }
+
+        public void Alert(string msg)
+        {
+            MessageBox.Show(msg);
+        }
+        #endregion
+
+        private void 插件设置ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string path = "lxerp.ini";  //测试一个word文档
+            System.Diagnostics.Process.Start(path); //打开此文件。
+        }
+
+        private void 版权申明ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(@"本软件的部分内容是在网上搜集，
+如有侵犯你的权利请email我删除。
+使用者可将本软件提供的内容用于个人学习、研究或欣赏，
+以及其他非商业性或非盈利性用途，
+但同时应遵守著作权法及其他相关法律的规定，
+不得侵犯本软件及相关权利人的合法权利。
+除此以外，将本软件任何内容或服务用于其他用途时，
+须征得相关权利人的书面许可。");
+        }
+
+        private void btnOpenIsqlw_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string path = "SQLchaxunfx\\isqlw.exe";  //
+                System.Diagnostics.Process.Start(path); //打开此文件。
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\n\r" + ex.StackTrace);
+            }
+        }
+
+        private void 捐赠ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Donate form = new Donate();
+            form.ShowDialog();
+        }
+
+        private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("xiefengdaxia123@163.com");
+        }
+
     }
 }
