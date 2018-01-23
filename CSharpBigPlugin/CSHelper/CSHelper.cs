@@ -13,23 +13,25 @@ public static class CSHelper
     #region //保存text
     public static void saveTextFile(string log, string txtName, string expandedName,bool isAppend=false)
     {
-        //log = DateTime.Now.ToString() + " : " + log;
-        string path = Application.StartupPath + "\\";
-        if (isAppend==true&&File.Exists(path + @"\" + txtName + "." + expandedName))
+        lock (locker)
         {
-            StreamWriter SW;
-            SW = File.AppendText(path + @"\" + txtName + "." + expandedName);
-            SW.WriteLine(log );
-            SW.Close();
+            //log = DateTime.Now.ToString() + " : " + log;
+            string path = Application.StartupPath + "\\";
+            if (isAppend == true && File.Exists(path + @"\" + txtName + "." + expandedName))
+            {
+                StreamWriter SW;
+                SW = File.AppendText(path + @"\" + txtName + "." + expandedName);
+                SW.WriteLine(log);
+                SW.Close();
+            }
+            else
+            {
+                StreamWriter SW;
+                SW = File.CreateText(path + @"\" + txtName + "." + expandedName);
+                SW.WriteLine(log);
+                SW.Close();
+            }
         }
-        else
-        {
-            StreamWriter SW;
-            SW = File.CreateText(path + @"\" + txtName + "." + expandedName);
-            SW.WriteLine(log);
-            SW.Close();
-        }
-
     }
     #endregion
 

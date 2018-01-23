@@ -19,12 +19,19 @@ namespace MSsqlTools
 
         private void BackupDB_Load(object sender, EventArgs e)
         {
-            var list = DBHelper.QuerySql("select [name] from [sysdatabases] order by [name]");
-            foreach (var item in list)
+            try
             {
-                cbDBNames.Items.Add(item);
+                var list = DBHelper.QuerySql("select [name] from [sysdatabases] order by [name]");
+                foreach (var item in list)
+                {
+                    cbDBNames.Items.Add(item);
+                }
+                cbDBNames.Text = cbDBNames.Items[0].ToString();
             }
-            cbDBNames.Text = cbDBNames.Items[0].ToString();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\n\r" + ex.StackTrace);
+            }
         }
 
         private void btnOpenFileDialog_Click(object sender, EventArgs e)
