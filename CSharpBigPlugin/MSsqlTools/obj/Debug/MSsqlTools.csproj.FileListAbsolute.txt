@@ -1,1 +1,11 @@
 E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\obj\Debug\MSsqlTools.exe
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\obj\Debug\MSsqlTools.csprojResolveAssemblyReference.cache
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\obj\Debug\MSsqlTools.AttachDB.resources
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\obj\Debug\MSsqlTools.BackupDB.resources
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\obj\Debug\MSsqlTools.Donate.resources
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\obj\Debug\MSsqlTools.MainForm.resources
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\obj\Debug\MSsqlTools.Properties.Resources.resources
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\obj\Debug\MSsqlTools.RestoreDB.resources
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\obj\Debug\MSsqlTools.UpdatePort.resources
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\obj\Debug\MSsqlTools.UpdatePWD.resources
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\obj\Debug\MSsqlTools.csproj.GenerateResource.Cache

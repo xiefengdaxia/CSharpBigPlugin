@@ -4,3 +4,5 @@ E:\project\CSharpBigPlugin\CSharpBigPlugin\sql2008tools\obj\Debug\sql2008tools.e
 E:\project\CSharpBigPlugin\CSharpBigPlugin\sql2008tools\obj\Debug\sql2008tools.pdb
 E:\project\CSharpBigPlugin\CSharpBigPlugin\sql2008tools\bin\Debug\sql2008tools.exe.config
 E:\project\CSharpBigPlugin\CSharpBigPlugin\sql2008tools\obj\Debug\sql2008tools.csprojResolveAssemblyReference.cache
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\sql2008tools\obj\Debug\sql2008tools.csprojResolveAssemblyReference.cache
+E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\sql2008tools\obj\Debug\sql2008tools.exe
