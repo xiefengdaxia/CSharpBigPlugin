@@ -47,7 +47,7 @@ WHERE tenant_type = 'club' AND NOT EXISTS(SELECT 1 FROM t_role_menu WHERE id = {
                 parent_id = 0,
                 url = null,
                 sort = 90000,
-                state=0
+                state = 0
             };
             p1.subMenu = new List<Menu>();
 
@@ -59,7 +59,7 @@ WHERE tenant_type = 'club' AND NOT EXISTS(SELECT 1 FROM t_role_menu WHERE id = {
                 parent_id = p1.id,
                 url = "#!/ticketSale/",
                 sort = p1.sort + i,
-                state=1
+                state = 1
             };
             i++;
             Menu m2 = new Menu()
@@ -118,7 +118,7 @@ WHERE tenant_type = 'club' AND NOT EXISTS(SELECT 1 FROM t_role_menu WHERE id = {
             i += 1000;
             PMenu p2 = new PMenu()
             {
-                id = -436477463 -i,
+                id = -436477463 - i,
                 code = "report-mem",
                 name = "会员管理报表",
                 parent_id = 0,
@@ -211,23 +211,135 @@ WHERE tenant_type = 'club' AND NOT EXISTS(SELECT 1 FROM t_role_menu WHERE id = {
                 sort = 98000,
                 state = 0
             };
+            p5.subMenu = new List<Menu>();
+            Menu q1 = new Menu()
+            {
+                id = -4364774630 - i,
+                code = "report-gymReserveReport",
+                name = "场地预订报表",
+                parent_id = p5.id,
+                url = "#!/gymReserveReport/",
+                sort = p5.sort + i,
+                state = 1
+            };
+            i++;
+            Menu q2 = new Menu()
+            {
+                id = -4364774630 - i,
+                code = "report-gymReserveCancleReport",
+                name = "已取消预订报表",
+                parent_id = p5.id,
+                url = "#!/gymReserveCancleReport/",
+                sort = p5.sort + i,
+                state = 1
+            };
+            i++;
+            p5.subMenu.Add(q1);
+            p5.subMenu.Add(q2);
 
+            Menu m6 = new Menu()
+            {
+                id = -4364774630 - i,
+                code = "report-sales-payTypeReport",
+                name = "付款方式汇总表",
+                parent_id = p1.id,
+                url = "#!/payTypeReport/",
+                sort = p1.sort + i,
+                state = 1
+            };
+            i++;
+            p1.subMenu.Add(m6);
+
+            Menu n3 = new Menu()
+            {
+                id = -4364774630 - i,
+                code = "report-mem-memkindCountReport",
+                name = "会籍统计表",
+                parent_id = p2.id,
+                url = "#!/memkindCountReport/",
+                sort = p2.sort + i,
+                state = 1
+            };
+            i++;
+            Menu n4 = new Menu()
+            {
+                id = -4364774630 - i,
+                code = "report-mem-memBirthdayReport",
+                name = "会员生日表",
+                parent_id = p2.id,
+                url = "#!/memBirthdayReport/",
+                sort = p2.sort + i,
+                state = 1
+            };
+            i++;
+            p2.subMenu.Add(n3);
+            p2.subMenu.Add(n4);
+
+
+            Menu o3 = new Menu()
+            {
+                id = -4364774630 - i,
+                code = "report-mem-memCardRechargeTimesReport",
+                name = "卡充次情况统计表",
+                parent_id = p3.id,
+                url = "#!/memCardRechargeTimesReport/",
+                sort = p3.sort + i,
+                state = 1
+            };
+            i++;
+            Menu o4 = new Menu()
+            {
+                id = -4364774630 - i,
+                code = "report-mem-memCardDeductTimesReport",
+                name = "次卡扣次统计报表",
+                parent_id = p3.id,
+                url = "#!/memCardDeductTimesReport/",
+                sort = p3.sort + i,
+                state = 1
+            };
+            i++;
+            Menu o5 = new Menu()
+            {
+                id = -4364774630 - i,
+                code = "report-mem-memCardTimesReport",
+                name = "卡剩余次数情况统计表",
+                parent_id = p3.id,
+                url = "#!/memCardTimesReport/",
+                sort = p3.sort + i,
+                state = 1
+            };
+            i++;
+
+            p3.subMenu.Add(o3);
+            p3.subMenu.Add(o4);
+            p3.subMenu.Add(o5);
+
+
+            //销售收入报表
             root.Add(p1);
+
+            //会员管理报表
             root.Add(p2);
+
+            //会员充值与消费报表
             root.Add(p3);
+
+            //库存管理报表
             root.Add(p4);
+
+            //场地预订报表
             root.Add(p5);
 
             foreach (PMenu item in root)
             {
-                var str = string.Format(template, item.id, item.code, item.name, item.url, item.sort, item.parent_id,item.state);
+                var str = string.Format(template, item.id, item.code, item.name, item.url, item.sort, item.parent_id, item.state);
                 CSHelper.saveTextFile(str, "menu", "sql", true);
 
                 if (item.subMenu == null)
                     continue;
                 foreach (Menu subItem in item.subMenu)
                 {
-                    var str1 = string.Format(template, subItem.id, subItem.code, subItem.name, subItem.url, subItem.sort, subItem.parent_id,subItem.state);
+                    var str1 = string.Format(template, subItem.id, subItem.code, subItem.name, subItem.url, subItem.sort, subItem.parent_id, subItem.state);
                     CSHelper.saveTextFile(str1, "menu", "sql", true);
                 }
             }
