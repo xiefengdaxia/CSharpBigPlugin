@@ -125,6 +125,24 @@ SELECT -4364778642 + id, 0, id, -4364778642
 FROM t_role
 WHERE tenant_type = 'club' AND NOT EXISTS(SELECT 1 FROM t_role_menu WHERE id = -4364778642 + t_role.id);
 
+delete from premission where id=-4364778649;
+INSERT INTO premission(id, auto_created, CODE, NAME, premission_type, parent_id)
+  SELECT -4364778649, 1, 'report-sales-incomeDetails', '收入明细报表(带小计)', 1, -436477463
+  FROM dummy
+  WHERE NOT EXISTS (SELECT 1 FROM premission WHERE id = -4364778649);
+
+delete from t_menu where id=-4364778649;
+INSERT INTO t_menu(id, auto_created, CODE, menu_name, icon_class, parent_id, state, url, premission_id, `group`, sort)
+SELECT -4364778649, 1, 'report-sales-incomeDetails', '收入明细报表(带小计)',
+    'icon-list-ul', -436477463, 1, '#!/incomeDetails/', -4364778649, '', 94019
+FROM dummy
+WHERE NOT EXISTS (SELECT 1 FROM t_menu WHERE id = -4364778649);
+
+INSERT INTO t_role_menu(id, VERSION, role_id, menu_id)
+SELECT -4364778649 + id, 0, id, -4364778649
+FROM t_role
+WHERE tenant_type = 'club' AND NOT EXISTS(SELECT 1 FROM t_role_menu WHERE id = -4364778649 + t_role.id);
+
 delete from premission where id=-436478469;
 INSERT INTO premission(id, auto_created, CODE, NAME, premission_type, parent_id)
   SELECT -436478469, 1, 'report-mem', '会员管理报表', 1, 0

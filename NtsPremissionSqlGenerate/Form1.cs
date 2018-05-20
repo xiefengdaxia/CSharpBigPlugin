@@ -314,6 +314,20 @@ WHERE tenant_type = 'club' AND NOT EXISTS(SELECT 1 FROM t_role_menu WHERE id = {
             p3.subMenu.Add(o4);
             p3.subMenu.Add(o5);
 
+            i++;
+            Menu m7 = new Menu()
+            {
+                id = -4364774630 - i,
+                code = "report-sales-incomeDetails",
+                name = "收入明细报表(带小计)",
+                parent_id = p1.id,
+                url = "#!/incomeDetails/",
+                sort = p1.sort + i,
+                state = 1
+            };
+            i++;
+
+            p1.subMenu.Add(m7);
 
             //销售收入报表
             root.Add(p1);
