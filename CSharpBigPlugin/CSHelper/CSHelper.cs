@@ -43,7 +43,7 @@ public static class CSHelper
         lock (locker)
         {
             //txtName = "log";
-            log = DateTime.Now.ToString() + " : " + log;
+            log = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ffff") + " : " + log;
             string path = Application.StartupPath + "\\";
             if (File.Exists(path + @"\" + txtName + ".txt"))
             {
@@ -587,5 +587,138 @@ public static class CSHelper
     }
     #endregion
 
+    #region 指静脉 XGComApi
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_ConnectDev(String sDev, String sPassword);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_CloseDev(int lDevHandle);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_GetDevParam(int lDevHandle, byte[] bParam);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_SetDevParam(int lDevHandle, String sParam);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_PlayDevSound(int lDevHandle, int Sound);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_CheckFinger(int lDevHandle);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_GetVeinChara(int lDevHandle, byte[] bChara, int lTimeout);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_ReadDevTemp(int lDevHandle, int lUserId, byte[] sTemp);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_WriteDevTemp(int lDevHandle, int lUserId, String sTemp, String sUserInfo);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_DeleteDevTemp(int lDevHandle, int lUserId);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_GetDevDebugInfo(int lDevHandle, String sFileName);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_Upgrade(int lDevHandle, String sFileName);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_GetImgFormData(String sData, int lDataLen, byte[] sImg);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_GetImgFormDev(int lDevHandle, byte[] sImg, int lTimeout);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_GetCharaFromImg(String sImg, byte[] sChara);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_ReadDevLog(int lDevHandle, String sStartTime, String sEndTime, byte[] sLog);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_WriteDevUserInfo(int lDevHandle, int lStartID, int lNum, String sUserInfo);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_ReadDevUserInfo(int lDevHandle, int lStartID, int lNum, byte[] sUserInfo);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_SendCmdPacket(int lDevHandle, int lCmd, byte[] sData);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_RecvCmdPacket(int lDevHandle, byte[] bData, int lTimeout);
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //以下是算法库相关API
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_CharaMatch(String sChara1, String sChara2, int Score);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_CreateVeinTemp(String sChara1, String sChara2, String sChara3, byte[] bTemp, String sUserInfo);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_CreateVeinLib(int lUserNum);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_DestroyVeinLib(int lLibHandle);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_ImportVeinTemp(int lLibHandle, int lUserId, String sTemp, String sUserInfo);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_ExportVeinTemp(int lLibHandle, int lUserId, byte[] bTemp);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_CleanVeinTemp(int lLibHandle, int lUserId);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_SearchUser(int lLibHandle, String sChara, int lTh, byte[] bUserInfo);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_VerifyUser(String sTemp, String sChara, int Score, byte[] bStudyTemp, byte[] bUserInfo);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_SetUserInfo(int lLibHandle, int lUserId, String sUserInfo);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_GetUserInfo(int lLibHandle, int lUserId, byte[] sUserInfo);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_GetTempUserInfo(String sTemp, byte[] sUserInfo);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_NetPackParse(byte[] bNetBuf, int lBufSize, byte[] sCmd, byte[] sSN, byte[] sData);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_AsciiToHex(byte[] sAscii, byte[] bHex);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_HexToAscii(byte[] bHex, int lByte, byte[] sAscii);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_SocketServerInit(int lPort, String sParam);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_SocketAccept(int lSocket, byte[] sInfo);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_SocketRecvPack(int lSocket, byte[] sCMD, byte[] sSN, byte[] sData);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_SocketSendPack(int lSocket, int lCmd, String sData);
+
+    [DllImport("XGComApi.dll", CharSet = CharSet.Ansi)]
+    public static extern int FV_SocketClose(int lSocket);
+
+    [DllImport("winmm.dll")]
+    public static extern bool PlaySound(String Filename, int Mod, int Flags);
+
+    [DllImport("kernel32.dll")]
+    public static extern bool AllocConsole();
+
+    [DllImport("kernel32.dll")]
+    public static extern bool FreeConsole();
+    #endregion
 }
 
