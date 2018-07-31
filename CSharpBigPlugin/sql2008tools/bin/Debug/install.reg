@@ -31,7 +31,7 @@ Windows Registry Editor Version 5.00
 "TcpPort"="49157"
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\XSQL2008\Setup]
-"SQLPath"="E:\\project\\CSharpBigPlugin\\CSharpBigPlugin\\sql2008tools\\bin\\Debug\\MSSQL10_50.XSQL2008\\MSSQL"
+"SQLPath"="E:\\谢峰C#\\Project\\CSharpBigPlugin\\CSharpBigPlugin\\sql2008tools\\bin\\Debug\\MSSQL10_50.XSQL2008\\MSSQL"
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\MSSQL10_50.XSQL2008]
 @="XSQL2008"
@@ -47,14 +47,14 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\MSSQL10_50.XSQL2008\CPE]
 "CollectorParameters"="SQL MSSQL10_50.XSQL2008"
 "TimeOfReporting"=dword:0000003c
-"ErrorDumpDir"="E:\\project\\CSharpBigPlugin\\CSharpBigPlugin\\sql2008tools\\bin\\Debug\\MSSQL10_50.XSQL2008\\MSSQL\\LOG\\"
+"ErrorDumpDir"="E:\\谢峰C#\\Project\\CSharpBigPlugin\\CSharpBigPlugin\\sql2008tools\\bin\\Debug\\MSSQL10_50.XSQL2008\\MSSQL\\LOG\\"
 "EnableErrorReporting"=dword:00000000
 "CustomerFeedback"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\MSSQL10_50.XSQL2008\MSSQLServer]
 "SysDb"=dword:00000001
 "AuditLevel"=dword:00000002
-"BackupDirectory"="E:\\project\\CSharpBigPlugin\\CSharpBigPlugin\\sql2008tools\\bin\\Debug\\MSSQL10_50.XSQL2008\\MSSQL\\Backup"
+"BackupDirectory"="E:\\谢峰C#\\Project\\CSharpBigPlugin\\CSharpBigPlugin\\sql2008tools\\bin\\Debug\\MSSQL10_50.XSQL2008\\MSSQL\\Backup"
 "DefaultLogin"="guest"
 "LoginMode"=dword:00000002
 "Map#"="-"
@@ -81,9 +81,9 @@ Windows Registry Editor Version 5.00
 "EnableLevel"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\MSSQL10_50.XSQL2008\MSSQLServer\Parameters]
-"SQLArg0"="-dE:\\project\\CSharpBigPlugin\\CSharpBigPlugin\\sql2008tools\\bin\\Debug\\MSSQL10_50.XSQL2008\\MSSQL\\DATA\\master.mdf"
-"SQLArg1"="-eE:\\project\\CSharpBigPlugin\\CSharpBigPlugin\\sql2008tools\\bin\\Debug\\MSSQL10_50.XSQL2008\\MSSQL\\Log\\ERRORLOG"
-"SQLArg2"="-lE:\\project\\CSharpBigPlugin\\CSharpBigPlugin\\sql2008tools\\bin\\Debug\\MSSQL10_50.XSQL2008\\MSSQL\\DATA\\mastlog.ldf"
+"SQLArg0"="-dE:\\谢峰C#\\Project\\CSharpBigPlugin\\CSharpBigPlugin\\sql2008tools\\bin\\Debug\\MSSQL10_50.XSQL2008\\MSSQL\\DATA\\master.mdf"
+"SQLArg1"="-eE:\\谢峰C#\\Project\\CSharpBigPlugin\\CSharpBigPlugin\\sql2008tools\\bin\\Debug\\MSSQL10_50.XSQL2008\\MSSQL\\Log\\ERRORLOG"
+"SQLArg2"="-lE:\\谢峰C#\\Project\\CSharpBigPlugin\\CSharpBigPlugin\\sql2008tools\\bin\\Debug\\MSSQL10_50.XSQL2008\\MSSQL\\DATA\\mastlog.ldf"
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\MSSQL10_50.XSQL2008\MSSQLServer\SuperSocketNetLib]
 "ForceEncryption"=dword:00000000
@@ -185,12 +185,12 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\MSSQL10_50.XSQL2008\Setup]
 "Version"="10.53.6000.34"
 "SP"=dword:00000003
-"SQLPath"="E:\\project\\CSharpBigPlugin\\CSharpBigPlugin\\sql2008tools\\bin\\Debug\\MSSQL10_50.XSQL2008\\MSSQL"
+"SQLPath"="E:\\谢峰C#\\Project\\CSharpBigPlugin\\CSharpBigPlugin\\sql2008tools\\bin\\Debug\\MSSQL10_50.XSQL2008\\MSSQL"
 "ProductCode"="{B5153233-9AEE-4CD4-9D2C-4FAAC870DBE2}"
-"SqlProgramDir"="E:\\project\\CSharpBigPlugin\\CSharpBigPlugin\\sql2008tools\\bin\\Debug\\"
+"SqlProgramDir"="E:\\谢峰C#\\Project\\CSharpBigPlugin\\CSharpBigPlugin\\sql2008tools\\bin\\Debug\\"
 "FeatureList"="SQL_Engine_Core_Inst=3 SQL_DataFiles_Core_Inst=3 SQL_ENGINE_DB_CNI=3 SQL_CMDLINETOOLS_CNI=3 SQL_DUMPER_CNI=3 SQL_Engine_CNI=3 SQL_ENGINE_CORE_CNI=3 SQL_LEGACYTOOLS_CNI=3 SQL_REPL_ENGINE_SUPPORT_CNI=3 SQL_SLP_ENGINE_SUPPORT_CNI=3 MPT_AGENT_CORE_CNI=3 SQL_AGENT_FNI=3 SQL_DATA_COLLECTOR_FNI=3 SQL_LEGACYTOOLS_FNI=3 SQL_MAIL_FNI=3 SQL_REPL_ENGINE_SUPPORT_FNI=3 SQL_UPGRADESCRIPTS_FNI=3"
 "PatchLevel"="10.53.6000.34"
-"SQLBinRoot"="E:\\project\\CSharpBigPlugin\\CSharpBigPlugin\\sql2008tools\\bin\\Debug\\MSSQL10_50.XSQL2008\\MSSQL\\Binn"
+"SQLBinRoot"="E:\\谢峰C#\\Project\\CSharpBigPlugin\\CSharpBigPlugin\\sql2008tools\\bin\\Debug\\MSSQL10_50.XSQL2008\\MSSQL\\Binn"
 "Language"=dword:00000804
 "checksum"=hex:39,36,33,66,66,66,30,65,62,38,32,62,30,34,37,62,31,30,35,31,36,\
   38,32,31,30,30,63,63,36,36,33,30,30,66,62,30,30,37,66,31,62,63,35,66,65,61,\
@@ -212,7 +212,7 @@ Windows Registry Editor Version 5.00
 "Edition"="Enterprise Edition"
 "SQLGroup"="S-1-5-21-824995083-1919872071-3674431250-1003"
 "Collation"="Chinese_PRC_CI_AS"
-"SQLDataRoot"="E:\\project\\CSharpBigPlugin\\CSharpBigPlugin\\sql2008tools\\bin\\Debug\\MSSQL10_50.XSQL2008\\MSSQL"
+"SQLDataRoot"="E:\\谢峰C#\\Project\\CSharpBigPlugin\\CSharpBigPlugin\\sql2008tools\\bin\\Debug\\MSSQL10_50.XSQL2008\\MSSQL"
 "AGTGroup"="S-1-5-21-824995083-1919872071-3674431250-1004"
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\MSSQL10_50.XSQL2008\Setup\SQL_Engine_Core_Inst]
@@ -228,8 +228,8 @@ Windows Registry Editor Version 5.00
 "PatchLevel"="10.53.6000.34"
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\MSSQL10_50.XSQL2008\SQLServerAgent]
-"ErrorLogFile"="E:\\project\\CSharpBigPlugin\\CSharpBigPlugin\\sql2008tools\\bin\\Debug\\MSSQL10_50.XSQL2008\\MSSQL\\Log\\SQLAGENT.OUT"
-"WorkingDirectory"="E:\\project\\CSharpBigPlugin\\CSharpBigPlugin\\sql2008tools\\bin\\Debug\\MSSQL10_50.XSQL2008\\MSSQL\\JOBS"
+"ErrorLogFile"="E:\\谢峰C#\\Project\\CSharpBigPlugin\\CSharpBigPlugin\\sql2008tools\\bin\\Debug\\MSSQL10_50.XSQL2008\\MSSQL\\Log\\SQLAGENT.OUT"
+"WorkingDirectory"="E:\\谢峰C#\\Project\\CSharpBigPlugin\\CSharpBigPlugin\\sql2008tools\\bin\\Debug\\MSSQL10_50.XSQL2008\\MSSQL\\JOBS"
 "RestartServer"="1"
 "ErrorLoggingLevel"=dword:00000003
 "JobHistoryMaxRows"=dword:000003e8

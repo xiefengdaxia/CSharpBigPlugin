@@ -1,0 +1,10 @@
+E:\谢峰C#\Project\CSharpBigPlugin\NtsPremissionSqlGenerate\bin\Debug\NtsPremissionSqlGenerate.exe
+E:\谢峰C#\Project\CSharpBigPlugin\NtsPremissionSqlGenerate\bin\Debug\NtsPremissionSqlGenerate.pdb
+E:\谢峰C#\Project\CSharpBigPlugin\NtsPremissionSqlGenerate\bin\Debug\CSHelper.dll
+E:\谢峰C#\Project\CSharpBigPlugin\NtsPremissionSqlGenerate\bin\Debug\CSHelper.pdb
+E:\谢峰C#\Project\CSharpBigPlugin\NtsPremissionSqlGenerate\obj\Debug\NtsPremissionSqlGenerate.csprojResolveAssemblyReference.cache
+E:\谢峰C#\Project\CSharpBigPlugin\NtsPremissionSqlGenerate\obj\Debug\NtsPremissionSqlGenerate.Form1.resources
+E:\谢峰C#\Project\CSharpBigPlugin\NtsPremissionSqlGenerate\obj\Debug\NtsPremissionSqlGenerate.Properties.Resources.resources
+E:\谢峰C#\Project\CSharpBigPlugin\NtsPremissionSqlGenerate\obj\Debug\NtsPremissionSqlGenerate.csproj.GenerateResource.Cache
+E:\谢峰C#\Project\CSharpBigPlugin\NtsPremissionSqlGenerate\obj\Debug\NtsPremissionSqlGenerate.exe
+E:\谢峰C#\Project\CSharpBigPlugin\NtsPremissionSqlGenerate\obj\Debug\NtsPremissionSqlGenerate.pdb

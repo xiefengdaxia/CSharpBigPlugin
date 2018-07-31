@@ -17,5 +17,9 @@
 
 *.vshost.exe
 *.manifest
+*.Cache
+*.cache
+*.exe
+*.suo
 
 CSharpBigPlugin/MSsqlTools/bin/Debug/SQLchaxunfx
