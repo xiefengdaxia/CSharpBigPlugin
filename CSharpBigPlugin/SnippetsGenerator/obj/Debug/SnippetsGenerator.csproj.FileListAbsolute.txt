@@ -1,0 +1,13 @@
+F:\project\CSharpBigPlugin\CSharpBigPlugin\SnippetsGenerator\bin\Debug\SnippetsGenerator.exe.config
+F:\project\CSharpBigPlugin\CSharpBigPlugin\SnippetsGenerator\bin\Debug\SnippetsGenerator.exe
+F:\project\CSharpBigPlugin\CSharpBigPlugin\SnippetsGenerator\bin\Debug\SnippetsGenerator.pdb
+F:\project\CSharpBigPlugin\CSharpBigPlugin\SnippetsGenerator\bin\Debug\LitJSON2.dll
+F:\project\CSharpBigPlugin\CSharpBigPlugin\SnippetsGenerator\obj\Debug\SnippetsGenerator.Form1.resources
+F:\project\CSharpBigPlugin\CSharpBigPlugin\SnippetsGenerator\obj\Debug\SnippetsGenerator.Properties.Resources.resources
+F:\project\CSharpBigPlugin\CSharpBigPlugin\SnippetsGenerator\obj\Debug\SnippetsGenerator.csproj.GenerateResource.Cache
+F:\project\CSharpBigPlugin\CSharpBigPlugin\SnippetsGenerator\obj\Debug\SnippetsGenerator.csproj.CoreCompileInputs.cache
+F:\project\CSharpBigPlugin\CSharpBigPlugin\SnippetsGenerator\obj\Debug\SnippetsGenerator.exe
+F:\project\CSharpBigPlugin\CSharpBigPlugin\SnippetsGenerator\obj\Debug\SnippetsGenerator.pdb
+F:\project\CSharpBigPlugin\CSharpBigPlugin\SnippetsGenerator\obj\Debug\SnippetsGenerator.csprojResolveAssemblyReference.cache
+F:\project\CSharpBigPlugin\CSharpBigPlugin\SnippetsGenerator\bin\Debug\CSHelper.dll
+F:\project\CSharpBigPlugin\CSharpBigPlugin\SnippetsGenerator\bin\Debug\CSHelper.pdb

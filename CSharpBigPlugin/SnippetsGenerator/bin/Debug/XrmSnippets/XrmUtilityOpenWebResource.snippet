@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>XrmUtilityOpenWebResource</Title>
+      <Shortcut>XrmUtilityOpenWebResource</Shortcut>
+      <Description> 5.0+ Opens an HTML web resource. 
+var webResourceName = "new_webResource.htm";
+var webResourceData = encodeURIComponent("first=First Value&second=Second Value");
+var parameters = {};
+var width = 300;
+var height = 300;
+Xrm.Utility.openWebResource(webResourceName, webResourceData, width, height);</Description>
+      <Author>cangfeng</Author>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="false"></Literal>
+      </Declarations>
+      <Code Language="javascript"><![CDATA[ var webResourceName = "new_webResource.htm";
+var webResourceData = encodeURIComponent("first=First Value&second=Second Value");
+var parameters = {};
+var width = 300;
+var height = 300;
+Xrm.Utility.openWebResource(webResourceName, webResourceData, width, height); $end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

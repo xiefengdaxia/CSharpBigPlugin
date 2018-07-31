@@ -7,6 +7,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Data.SqlClient;
+using System.Data;
 public static class CSHelper
 {
     #region //保存log
@@ -31,19 +32,43 @@ public static class CSHelper
         }
 
     }
-    #endregion
+	#endregion
 
-    #region "声明变量"
+	#region //保存log
+	public static void saveFile(string log, string txtName,string extension)
+	{
+		//txtName = "log";
+		//log = DateTime.Now.ToString() + " : " + log;
+		string path = Application.StartupPath + "\\XrmSnippets\\";
+		//if (File.Exists(path + @"\" + txtName + "."+ extension))
+		//{
+		//	StreamWriter SW;
+		//	SW = File.AppendText(path + @"\" + txtName + "."+ extension);
+		//	SW.WriteLine(log);//SW.WriteLine(log + "\r\n");
+		//	SW.Close();
+		//}
+		//else
+		//{
+			StreamWriter SW;
+			SW = File.CreateText(path + @"\" + txtName + "."+ extension);
+			SW.WriteLine(log);//SW.WriteLine(log + "\r\n");
+			SW.Close();
+		//}
 
-    /// <summary>
-    /// 写入INI文件
-    /// </summary>
-    /// <param name="section">节点名称[如[TypeName]]</param>
-    /// <param name="key">键</param>
-    /// <param name="val">值</param>
-    /// <param name="filepath">文件路径</param>
-    /// <returns></returns>
-    [System.Runtime.InteropServices.DllImport("kernel32")]
+	}
+	#endregion
+
+	#region "声明变量"
+
+	/// <summary>
+	/// 写入INI文件
+	/// </summary>
+	/// <param name="section">节点名称[如[TypeName]]</param>
+	/// <param name="key">键</param>
+	/// <param name="val">值</param>
+	/// <param name="filepath">文件路径</param>
+	/// <returns></returns>
+	[System.Runtime.InteropServices.DllImport("kernel32")]
     private static extern long WritePrivateProfileString(string section, string key, string val, string filepath);
     /// <summary>
     /// 读取INI文件
@@ -342,6 +367,127 @@ public static class CSHelper
           int B2, int B3, int Bk, [MarshalAs(UnmanagedType.LPArray)]byte[] keyb);
     #endregion
 
+    #region 根据传入的查询sql返回字典的结果
+    public static Dictionary<string, object> GetDictBySql(string sql)
+    {
+        Dictionary<string, object> ReturnDict = new Dictionary<string, object>();
+        SqlConnection conn = new SqlConnection(CSHelper.sqlconn);
+        Dictionary<string, object> result;
+        try
+        {
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            conn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                for (int i = 0; i < dr.FieldCount; i++)
+                {
+                    ReturnDict.Add(dr.GetName(i), dr.GetValue(i));
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            CSHelper.saveErrLog(sql + ex.Message, DateTime.Now.ToString("yyyy-MM-dd") + "-sql_err");
+            result = null;
+            return result;
+        }
+        finally
+        {
+            conn.Close();
+            conn.Dispose();
+        }
+        result = ReturnDict;
+        return result;
+    } 
+    #endregion
+
+    #region 根据传入的sql返回列表
+    public static List<Dictionary<string, object>> GetListBySql(string sql)
+    {
+        SqlConnection conn = new SqlConnection(CSHelper.sqlconn);
+        List<Dictionary<string, object>> list = new List<Dictionary<string, object>>();
+        List<Dictionary<string, object>> result;
+        try
+        {
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            conn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                Dictionary<string, object> dict = new Dictionary<string, object>();
+                for (int i = 0; i < dr.FieldCount; i++)
+                {
+                    dict.Add(dr.GetName(i), dr.GetValue(i));
+                }
+                list.Add(dict);
+            }
+            result = list;
+        }
+        catch (Exception ex)
+        {
+            CSHelper.saveErrLog(sql + ex.Message, DateTime.Now.ToString("yyyy-MM-dd") + "-sql_err");
+            result = null;
+        }
+        finally
+        {
+            conn.Close();
+            conn.Dispose();
+        }
+        return result;
+    }
+    
+    #endregion
+
+    #region 获取数据库连接状态
+    public static bool getConnectState()
+    {
+        SqlConnection conn = new SqlConnection(CSHelper.sqlconn);
+        bool result;
+        try
+        {
+            conn.Open();
+            result = true;
+        }
+        catch (Exception ex)
+        {
+            CSHelper.saveErrLog(ex.Message, DateTime.Now.ToString("yyyy-MM-dd") + "-sql_err");
+            result = false;
+        }
+        finally
+        {
+            conn.Close();
+            conn.Dispose();
+        }
+        return result;
+    } 
+    #endregion
+
+    #region 获取datatable
+    public static DataTable GetTable(string strSQL, SqlParameter[] pas, CommandType cmdtype)
+    {
+        DataTable dt = new DataTable();
+        using (SqlConnection conn = new SqlConnection(CSHelper.sqlconn))
+        {
+            SqlDataAdapter da = new SqlDataAdapter(strSQL, conn);
+            da.SelectCommand.CommandType = cmdtype;
+            if (pas != null)
+            {
+                da.SelectCommand.Parameters.AddRange(pas);
+            }
+            da.Fill(dt);
+        }
+        return dt;
+    }
+    public static DataTable GetTable(string strSQL, SqlParameter[] pas)
+    {
+        return CSHelper.GetTable(strSQL, pas, CommandType.Text);
+    }
+    public static DataTable GetTable(string strSQL)
+    {
+        return CSHelper.GetTable(strSQL, null);
+    } 
+    #endregion
 
 }
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>XrmMobileRetrieveMultipleOfflineRecords</Title>
+      <Shortcut>XrmMobileRetrieveMultipleOfflineRecords</Shortcut>
+      <Description> 8.2+ Retrieves a collection of entity records in Dynamics 365 mobile clients while working in the offline mode. 
+var options = "?$select=name&$expand=primarycontactid($select=contactid,fullname)";
+var maxPageSize = 100;
+Xrm.Mobile.offline.retrieveMultipleRecords("entityName", options, maxPageSize).then([successFunction]}, [errorFunction]);</Description>
+      <Author>cangfeng</Author>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="false"></Literal>
+      </Declarations>
+      <Code Language="javascript"><![CDATA[ var options = "?$select=name&$expand=primarycontactid($select=contactid,fullname)";
+var maxPageSize = 100;
+Xrm.Mobile.offline.retrieveMultipleRecords("entityName", options, maxPageSize).then([successFunction]}, [errorFunction]); $end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

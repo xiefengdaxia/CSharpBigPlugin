@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>XrmControlsAddCustomFilter</Title>
+      <Shortcut>XrmControlsAddCustomFilter</Shortcut>
+      <Description> 6.0+ Use to add filters to the results displayed in the lookup. Each filter will be combined with any previously added filters as an 'AND' condition. 
+var entityName = "account";
+var filter = "<filter type='and'><condition attribute='name' operator='eq' value='test' /></filter>";
+Xrm.Page.getControl("fieldname").addCustomFilter(filter, entityName);</Description>
+      <Author>cangfeng</Author>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="false"></Literal>
+      </Declarations>
+      <Code Language="javascript"><![CDATA[ var entityName = "account";
+var filter = "<filter type='and'><condition attribute='name' operator='eq' value='test' /></filter>";
+Xrm.Page.getControl("fieldname").addCustomFilter(filter, entityName); $end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

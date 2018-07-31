@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>XrmAttributeFireOnChange</Title>
+      <Shortcut>XrmAttributeFireOnChange</Shortcut>
+      <Description> 5.0+ Causes the OnChange event to occur on the attribute so that any script associated to that event can execute. 
+Xrm.Page.getAttribute("fieldname").fireOnChange();</Description>
+      <Author>cangfeng</Author>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="false"></Literal>
+      </Declarations>
+      <Code Language="javascript"><![CDATA[ Xrm.Page.getAttribute("fieldname").fireOnChange(); $end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

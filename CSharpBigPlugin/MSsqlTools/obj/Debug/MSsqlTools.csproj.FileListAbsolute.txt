@@ -14,3 +14,5 @@ E:\project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\obj\Debug\MSsqlTools.Attac
 E:\project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\bin\Debug\CSPluginKernel.dll
 E:\project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\bin\Debug\CSPluginKernel.pdb
 E:\project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\obj\Debug\MSsqlTools.Donate.resources
+F:\project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\obj\Debug\MSsqlTools.exe
+F:\project\CSharpBigPlugin\CSharpBigPlugin\MSsqlTools\obj\Debug\MSsqlTools.pdb

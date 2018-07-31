@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>XrmMobileUpdateOfflineRecord</Title>
+      <Shortcut>XrmMobileUpdateOfflineRecord</Shortcut>
+      <Description> 8.2+ Updates an entity record in Dynamics 365 mobile clients while working in the offline mode. 
+var entity = {};
+entity.name = "test";
+Xrm.Mobile.offline.updateRecord("entityName", "id", entity).then([successFunction]}, [errorFunction]);</Description>
+      <Author>cangfeng</Author>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="false"></Literal>
+      </Declarations>
+      <Code Language="javascript"><![CDATA[ var entity = {};
+entity.name = "test";
+Xrm.Mobile.offline.updateRecord("entityName", "id", entity).then([successFunction]}, [errorFunction]); $end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

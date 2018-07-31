@@ -21,6 +21,7 @@ namespace MSsqlTools
         {
             try
             {
+                MessageBox.Show(DBHelper.IsAdministrator());
                 var list = DBHelper.QuerySql("select [name] from [sysdatabases] order by [name]");
                 foreach (var item in list)
                 {

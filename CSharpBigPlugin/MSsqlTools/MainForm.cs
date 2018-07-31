@@ -184,6 +184,14 @@ namespace MSsqlTools
         /// <param name="status">状态</param>
         public void UpdateStatus(Button btn, bool status)
         {
+            if (this==null)
+            {
+                return;
+            }
+            if (this.IsDisposed==true)
+            {
+                return;
+            }
             this.Invoke(new Func<bool>(delegate()
             {
                 if (!btn.IsDisposed)
@@ -620,6 +628,7 @@ namespace MSsqlTools
         {
             BackupDB form = new BackupDB();
             form.ShowDialog();
+
         }
 
         private void btnRestoreDB_Click(object sender, EventArgs e)

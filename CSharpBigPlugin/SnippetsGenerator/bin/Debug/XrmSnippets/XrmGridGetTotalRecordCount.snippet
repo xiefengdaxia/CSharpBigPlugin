@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>XrmGridGetTotalRecordCount</Title>
+      <Shortcut>XrmGridGetTotalRecordCount</Shortcut>
+      <Description> 7.1+ Returns the total number of records that match the filter criteria of the view, not limited by the number visible in a single page. 
+Xrm.Page.getControl("controlname").getGrid().getTotalRecordCount();</Description>
+      <Author>cangfeng</Author>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="false"></Literal>
+      </Declarations>
+      <Code Language="javascript"><![CDATA[ Xrm.Page.getControl("controlname").getGrid().getTotalRecordCount(); $end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

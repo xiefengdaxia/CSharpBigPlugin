@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>XrmUtilityOpenEntityForm</Title>
+      <Shortcut>XrmUtilityOpenEntityForm</Shortcut>
+      <Description> 5.0+ Opens an entity form. 
+var name = "account";
+var id = "5D24B2A7-957A-4D08-8723-2CEF5219FFA0";
+var parameters = {};
+parameters["formid"] = "b053a39a-041a-4356-acef-ddf00182762b";
+parameters["name"] = "Test";
+var windowOptions = {;
+	openInNewWindow: true;
+};
+Xrm.Utility.openEntityForm(name, id, parameters, windowOptions);</Description>
+      <Author>cangfeng</Author>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="false"></Literal>
+      </Declarations>
+      <Code Language="javascript"><![CDATA[ var name = "account";
+var id = "5D24B2A7-957A-4D08-8723-2CEF5219FFA0";
+var parameters = {};
+parameters["formid"] = "b053a39a-041a-4356-acef-ddf00182762b";
+parameters["name"] = "Test";
+var windowOptions = {;
+	openInNewWindow: true;
+};
+Xrm.Utility.openEntityForm(name, id, parameters, windowOptions); $end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

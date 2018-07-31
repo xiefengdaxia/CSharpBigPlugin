@@ -5,6 +5,10 @@ E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSHelper\obj\Debug\CSHelper.
 E:\谢峰C#\Project\CSharpBigPlugin\CSharpBigPlugin\CSHelper\obj\Debug\CSHelper.csprojResolveAssemblyReference.cache
 E:\project\CSharpBigPlugin\CSharpBigPlugin\CSHelper\bin\Debug\CSHelper.dll
 E:\project\CSharpBigPlugin\CSharpBigPlugin\CSHelper\bin\Debug\CSHelper.pdb
-E:\project\CSharpBigPlugin\CSharpBigPlugin\CSHelper\obj\Debug\CSHelper.csprojResolveAssemblyReference.cache
 E:\project\CSharpBigPlugin\CSharpBigPlugin\CSHelper\obj\Debug\CSHelper.dll
 E:\project\CSharpBigPlugin\CSharpBigPlugin\CSHelper\obj\Debug\CSHelper.pdb
+F:\project\CSharpBigPlugin\CSharpBigPlugin\CSHelper\bin\Debug\CSHelper.dll
+F:\project\CSharpBigPlugin\CSharpBigPlugin\CSHelper\bin\Debug\CSHelper.pdb
+F:\project\CSharpBigPlugin\CSharpBigPlugin\CSHelper\obj\Debug\CSHelper.csproj.CoreCompileInputs.cache
+F:\project\CSharpBigPlugin\CSharpBigPlugin\CSHelper\obj\Debug\CSHelper.dll
+F:\project\CSharpBigPlugin\CSharpBigPlugin\CSHelper\obj\Debug\CSHelper.pdb

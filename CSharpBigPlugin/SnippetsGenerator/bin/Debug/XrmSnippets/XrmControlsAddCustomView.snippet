@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>XrmControlsAddCustomView</Title>
+      <Shortcut>XrmControlsAddCustomView</Shortcut>
+      <Description> 5.0+ Adds a new view for the lookup dialog box. 
+var viewId = "F0EE06F5-BB78-465F-BADA-FC3F5CF05300";
+var entityName = "account";
+var viewDisplayName = "Custom View";
+var fetchXml = "<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>" +;
+	"<entity name='account'>" +;
+	"<attribute name='name' />" +;
+	"<attribute name='accountid' />" +;
+	"<filter type='and'>" +;
+	"<condition attribute='name' operator='eq' value='test' />" +;
+	"</filter>" +;
+	"</entity>" +;
+	"</fetch>";
+var layoutXml = "<grid name='resultset' object='1' jump='accountid' select='1' icon='1' preview='1'>" +;
+	"<row name='result' id='accountid'>" +;
+	"<cell name='name' width='150' />" +;
+	"</row>" +;
+	"</grid>";
+var isDefault = true;
+Xrm.Page.getControl("fieldname").addCustomView(viewId, entityName, viewDisplayName, fetchXml, layoutXml, isDefault);</Description>
+      <Author>cangfeng</Author>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="false"></Literal>
+      </Declarations>
+      <Code Language="javascript"><![CDATA[ var viewId = "F0EE06F5-BB78-465F-BADA-FC3F5CF05300";
+var entityName = "account";
+var viewDisplayName = "Custom View";
+var fetchXml = "<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>" +;
+	"<entity name='account'>" +;
+	"<attribute name='name' />" +;
+	"<attribute name='accountid' />" +;
+	"<filter type='and'>" +;
+	"<condition attribute='name' operator='eq' value='test' />" +;
+	"</filter>" +;
+	"</entity>" +;
+	"</fetch>";
+var layoutXml = "<grid name='resultset' object='1' jump='accountid' select='1' icon='1' preview='1'>" +;
+	"<row name='result' id='accountid'>" +;
+	"<cell name='name' width='150' />" +;
+	"</row>" +;
+	"</grid>";
+var isDefault = true;
+Xrm.Page.getControl("fieldname").addCustomView(viewId, entityName, viewDisplayName, fetchXml, layoutXml, isDefault); $end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
