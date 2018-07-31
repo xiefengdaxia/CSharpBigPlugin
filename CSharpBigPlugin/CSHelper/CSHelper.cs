@@ -10,8 +10,11 @@ using System.Data.SqlClient;
 using System.Data;
 public static class CSHelper
 {
-    #region //保存text
-    public static void saveTextFile(string log, string txtName, string expandedName,bool isAppend=false)
+	//加一把锁
+	public static object locker = new object();
+
+	#region //保存text
+	public static void saveTextFile(string log, string txtName, string expandedName,bool isAppend=false)
     {
         lock (locker)
         {
@@ -35,8 +38,6 @@ public static class CSHelper
     }
     #endregion
 
-    //加一把锁
-    public static object locker = new object();
     #region //保存log
     public static void saveErrLog(string log, string txtName)
     {
@@ -291,209 +292,6 @@ public static class CSHelper
     } 
     #endregion
 
-    #region 返回List<Dictionary<string,object>>
-    /// <summary>
-    /// 返回List<Dictionary<string,object>>
-    /// </summary>
-    /// <param name="sql">查询sql</param>
-    /// <returns>List<Dictionary<string,object>></returns>
-    public static List<Dictionary<string,object>> GetListBySql(string sql)
-    {
-       
-        SqlConnection conn = new SqlConnection(CSHelper.sqlconn);
-        var list=new List<Dictionary<string,object>>();
-       
-        try
-        {
-
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            conn.Open();
-            var dr= cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                var dict = new Dictionary<string, object>();
-                for (int i = 0; i < dr.FieldCount; i++)
-                {
-                    
-                    dict.Add(dr.GetName(i), dr.GetValue(i));
-                }
-                list.Add(dict);
-            }
-            return list;
-        }
-        catch (Exception ex)
-        {
-            CSHelper.saveErrLog(sql + ex.Message, DateTime.Now.ToString("yyyy-MM-dd") + "-sql_err");
-            return null;
-        }
-
-        finally
-        {
-            conn.Close();
-            conn.Dispose();
-        }
-
-       
-    }
-    #endregion
-
-
-    #region 返回第一列第一行
-    /// <summary>
-    /// 返回第一行
-    /// </summary>
-    /// <param name="sql">查询sql</param>
-    /// <returns>字符串</returns>
-    public static Dictionary<string,object> GetDictBySql(string sql)
-    {
-        var ReturnDict = new Dictionary<string, object>();
-
-        SqlConnection conn = new SqlConnection(CSHelper.sqlconn);
-        try
-        {
-
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            conn.Open();
-            SqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                for (int i = 0; i < dr.FieldCount; i++)
-                {
-                    ReturnDict.Add(dr.GetName(i), dr.GetValue(i));
-                }
-            }
-
-        }
-        catch (Exception ex)
-        {
-            CSHelper.saveErrLog(sql + ex.Message, DateTime.Now.ToString("yyyy-MM-dd") + "-sql_err");
-            return null;
-        }
-
-        finally
-        {
-            conn.Close();
-            conn.Dispose();
-        }
-
-        return ReturnDict;
-    }
-    #endregion
-
-    #region //明华IC读写器
-
-    public static int icdev; // 通讯设备标识符
-
-    [DllImport("mwrf32.dll", EntryPoint = "rf_init", SetLastError = true,
-           CharSet = CharSet.Auto, ExactSpelling = false,
-           CallingConvention = CallingConvention.StdCall)]
-    public static extern int rf_init(Int16 port, int baud);
-
-    [DllImport("mwrf32.dll", EntryPoint = "rf_exit", SetLastError = true,
-           CharSet = CharSet.Auto, ExactSpelling = false,
-           CallingConvention = CallingConvention.StdCall)]
-    public static extern Int16 rf_exit(int icdev);
-
-    [DllImport("mwrf32.dll", EntryPoint = "rf_beep", SetLastError = true,
-           CharSet = CharSet.Auto, ExactSpelling = false,
-           CallingConvention = CallingConvention.StdCall)]
-    public static extern Int16 rf_beep(int icdev, int msec);
-
-    [DllImport("mwrf32.dll", EntryPoint = "rf_get_status", SetLastError = true,
-          CharSet = CharSet.Auto, ExactSpelling = false,
-          CallingConvention = CallingConvention.StdCall)]
-    public static extern Int16 rf_get_status(int icdev, [MarshalAs(UnmanagedType.LPArray)]byte[] state);
-
-    [DllImport("mwrf32.dll", EntryPoint = "rf_load_key", SetLastError = true,
-         CharSet = CharSet.Auto, ExactSpelling = false,
-         CallingConvention = CallingConvention.StdCall)]
-    public static extern Int16 rf_load_key(int icdev, int mode, int secnr, [MarshalAs(UnmanagedType.LPArray)]byte[] keybuff);
-
-    [DllImport("mwrf32.dll", EntryPoint = "rf_load_key_hex", SetLastError = true,
-         CharSet = CharSet.Auto, ExactSpelling = false,
-         CallingConvention = CallingConvention.StdCall)]
-    public static extern Int16 rf_load_key_hex(int icdev, int mode, int secnr, [MarshalAs(UnmanagedType.LPArray)]byte[] keybuff);
-
-
-    [DllImport("mwrf32.dll", EntryPoint = "a_hex", SetLastError = true,
-         CharSet = CharSet.Auto, ExactSpelling = false,
-         CallingConvention = CallingConvention.StdCall)]
-    public static extern Int16 a_hex([MarshalAs(UnmanagedType.LPArray)]byte[] asc, [MarshalAs(UnmanagedType.LPArray)]byte[] hex, int len);
-
-    [DllImport("mwrf32.dll", EntryPoint = "hex_a", SetLastError = true,
-         CharSet = CharSet.Auto, ExactSpelling = false,
-         CallingConvention = CallingConvention.StdCall)]
-    public static extern Int16 hex_a([MarshalAs(UnmanagedType.LPArray)]byte[] hex, [MarshalAs(UnmanagedType.LPArray)]byte[] asc, int len);
-
-    [DllImport("mwrf32.dll", EntryPoint = "rf_reset", SetLastError = true,
-         CharSet = CharSet.Auto, ExactSpelling = false,
-         CallingConvention = CallingConvention.StdCall)]
-    public static extern Int16 rf_reset(int icdev, int msec);
-
-    [DllImport("mwrf32.dll", EntryPoint = "rf_request", SetLastError = true,
-         CharSet = CharSet.Auto, ExactSpelling = false,
-         CallingConvention = CallingConvention.StdCall)]
-    public static extern Int16 rf_request(int icdev, int mode, out UInt16 tagtype);
-
-
-    [DllImport("mwrf32.dll", EntryPoint = "rf_anticoll", SetLastError = true,
-         CharSet = CharSet.Auto, ExactSpelling = false,
-         CallingConvention = CallingConvention.StdCall)]
-    public static extern Int16 rf_anticoll(int icdev, int bcnt, out uint snr);
-
-    [DllImport("mwrf32.dll", EntryPoint = "rf_select", SetLastError = true,
-         CharSet = CharSet.Auto, ExactSpelling = false,
-         CallingConvention = CallingConvention.StdCall)]
-    public static extern Int16 rf_select(int icdev, uint snr, out byte size);
-
-    [DllImport("mwrf32.dll", EntryPoint = "rf_card", SetLastError = true,
-        CharSet = CharSet.Auto, ExactSpelling = false,
-        CallingConvention = CallingConvention.StdCall)]
-    public static extern Int16 rf_card(int icdev, int mode, [MarshalAs(UnmanagedType.LPArray)]byte[] snr);
-
-    [DllImport("mwrf32.dll", EntryPoint = "rf_authentication", SetLastError = true,
-         CharSet = CharSet.Auto, ExactSpelling = false,
-         CallingConvention = CallingConvention.StdCall)]
-    public static extern Int16 rf_authentication(int icdev, int mode, int secnr);
-
-    [DllImport("mwrf32.dll", EntryPoint = "rf_authentication_2", SetLastError = true,
-         CharSet = CharSet.Auto, ExactSpelling = false,
-         CallingConvention = CallingConvention.StdCall)]
-    public static extern Int16 rf_authentication_2(int icdev, int mode, int keynr, int blocknr);
-
-    [DllImport("mwrf32.dll", EntryPoint = "rf_read", SetLastError = true,
-         CharSet = CharSet.Auto, ExactSpelling = false,
-         CallingConvention = CallingConvention.StdCall)]
-    public static extern Int16 rf_read(int icdev, int blocknr, [MarshalAs(UnmanagedType.LPArray)]byte[] databuff);
-
-    [DllImport("mwrf32.dll", EntryPoint = "rf_read_hex", SetLastError = true,
-         CharSet = CharSet.Auto, ExactSpelling = false,
-         CallingConvention = CallingConvention.StdCall)]
-    public static extern Int16 rf_read_hex(int icdev, int blocknr, [MarshalAs(UnmanagedType.LPArray)]byte[] databuff);
-
-    [DllImport("mwrf32.dll", EntryPoint = "rf_write_hex", SetLastError = true,
-         CharSet = CharSet.Auto, ExactSpelling = false,
-         CallingConvention = CallingConvention.StdCall)]
-    public static extern Int16 rf_write_hex(int icdev, int blocknr, [MarshalAs(UnmanagedType.LPArray)]byte[] databuff);
-
-    [DllImport("mwrf32.dll", EntryPoint = "rf_write", SetLastError = true,
-         CharSet = CharSet.Auto, ExactSpelling = false,
-         CallingConvention = CallingConvention.StdCall)]
-    public static extern Int16 rf_write(int icdev, int blocknr, [MarshalAs(UnmanagedType.LPArray)]byte[] databuff);
-
-    [DllImport("mwrf32.dll", EntryPoint = "rf_halt", SetLastError = true,
-         CharSet = CharSet.Auto, ExactSpelling = false,
-         CallingConvention = CallingConvention.StdCall)]
-    public static extern Int16 rf_halt(int icdev);
-
-    [DllImport("mwrf32.dll", EntryPoint = "rf_changeb3", SetLastError = true,
-        CharSet = CharSet.Auto, ExactSpelling = false,
-        CallingConvention = CallingConvention.StdCall)]
-    public static extern Int16 rf_changeb3(int icdev, int sector, [MarshalAs(UnmanagedType.LPArray)]byte[] keya, int B0, int B1,
-          int B2, int B3, int Bk, [MarshalAs(UnmanagedType.LPArray)]byte[] keyb);
-    #endregion
-
-<<<<<<< HEAD
     #region 根据传入的查询sql返回字典的结果
     public static Dictionary<string, object> GetDictBySql(string sql)
     {
@@ -566,45 +364,9 @@ public static class CSHelper
     
     #endregion
 
-    #region 获取数据库连接状态
-    public static bool getConnectState()
-    {
-        SqlConnection conn = new SqlConnection(CSHelper.sqlconn);
-        bool result;
-        try
-        {
-            conn.Open();
-            result = true;
-        }
-        catch (Exception ex)
-        {
-            CSHelper.saveErrLog(ex.Message, DateTime.Now.ToString("yyyy-MM-dd") + "-sql_err");
-            result = false;
-        }
-        finally
-        {
-            conn.Close();
-            conn.Dispose();
-        }
-        return result;
-    } 
-    #endregion
 
-    #region 获取datatable
-    public static DataTable GetTable(string strSQL, SqlParameter[] pas, CommandType cmdtype)
-    {
-        DataTable dt = new DataTable();
-=======
     #region 执行查询，返回DataTable对象-----------------------
 
-    public static DataTable GetTable(string strSQL)
-    {
-        return GetTable(strSQL, null);
-    }
-    public static DataTable GetTable(string strSQL, SqlParameter[] pas)
-    {
-        return GetTable(strSQL, pas, CommandType.Text);
-    }
     /// <summary>
     /// 执行查询，返回DataTable对象
     /// </summary>
@@ -614,8 +376,8 @@ public static class CSHelper
     /// <returns>DataTable对象</returns>
     public static DataTable GetTable(string strSQL, SqlParameter[] pas, CommandType cmdtype)
     {
-        DataTable dt = new DataTable(); ;
->>>>>>> c208933cd1cc9494d11bf10dbe066cdb346bb359
+        DataTable dt = new DataTable(); 
+
         using (SqlConnection conn = new SqlConnection(CSHelper.sqlconn))
         {
             SqlDataAdapter da = new SqlDataAdapter(strSQL, conn);
@@ -628,7 +390,7 @@ public static class CSHelper
         }
         return dt;
     }
-<<<<<<< HEAD
+
     public static DataTable GetTable(string strSQL, SqlParameter[] pas)
     {
         return CSHelper.GetTable(strSQL, pas, CommandType.Text);
@@ -638,13 +400,6 @@ public static class CSHelper
         return CSHelper.GetTable(strSQL, null);
     } 
     #endregion
-=======
->>>>>>> c208933cd1cc9494d11bf10dbe066cdb346bb359
-
-
-
-    #endregion
-
 
     #region //判断是否可以连接数据库
     /// <summary>
@@ -679,7 +434,6 @@ public static class CSHelper
         return isConnected;
     }
     #endregion
-
 
     #region //使用事务执行多条SQL(插入、更新、删除)
     /// <summary>
@@ -858,6 +612,119 @@ public static class CSHelper
 
     [DllImport("kernel32.dll")]
     public static extern bool FreeConsole();
-    #endregion
+	#endregion
+
+	#region //明华IC读写器
+
+	public static int icdev; // 通讯设备标识符
+
+	[DllImport("mwrf32.dll", EntryPoint = "rf_init", SetLastError = true,
+		   CharSet = CharSet.Auto, ExactSpelling = false,
+		   CallingConvention = CallingConvention.StdCall)]
+	public static extern int rf_init(Int16 port, int baud);
+
+	[DllImport("mwrf32.dll", EntryPoint = "rf_exit", SetLastError = true,
+		   CharSet = CharSet.Auto, ExactSpelling = false,
+		   CallingConvention = CallingConvention.StdCall)]
+	public static extern Int16 rf_exit(int icdev);
+
+	[DllImport("mwrf32.dll", EntryPoint = "rf_beep", SetLastError = true,
+		   CharSet = CharSet.Auto, ExactSpelling = false,
+		   CallingConvention = CallingConvention.StdCall)]
+	public static extern Int16 rf_beep(int icdev, int msec);
+
+	[DllImport("mwrf32.dll", EntryPoint = "rf_get_status", SetLastError = true,
+		  CharSet = CharSet.Auto, ExactSpelling = false,
+		  CallingConvention = CallingConvention.StdCall)]
+	public static extern Int16 rf_get_status(int icdev, [MarshalAs(UnmanagedType.LPArray)]byte[] state);
+
+	[DllImport("mwrf32.dll", EntryPoint = "rf_load_key", SetLastError = true,
+		 CharSet = CharSet.Auto, ExactSpelling = false,
+		 CallingConvention = CallingConvention.StdCall)]
+	public static extern Int16 rf_load_key(int icdev, int mode, int secnr, [MarshalAs(UnmanagedType.LPArray)]byte[] keybuff);
+
+	[DllImport("mwrf32.dll", EntryPoint = "rf_load_key_hex", SetLastError = true,
+		 CharSet = CharSet.Auto, ExactSpelling = false,
+		 CallingConvention = CallingConvention.StdCall)]
+	public static extern Int16 rf_load_key_hex(int icdev, int mode, int secnr, [MarshalAs(UnmanagedType.LPArray)]byte[] keybuff);
+
+
+	[DllImport("mwrf32.dll", EntryPoint = "a_hex", SetLastError = true,
+		 CharSet = CharSet.Auto, ExactSpelling = false,
+		 CallingConvention = CallingConvention.StdCall)]
+	public static extern Int16 a_hex([MarshalAs(UnmanagedType.LPArray)]byte[] asc, [MarshalAs(UnmanagedType.LPArray)]byte[] hex, int len);
+
+	[DllImport("mwrf32.dll", EntryPoint = "hex_a", SetLastError = true,
+		 CharSet = CharSet.Auto, ExactSpelling = false,
+		 CallingConvention = CallingConvention.StdCall)]
+	public static extern Int16 hex_a([MarshalAs(UnmanagedType.LPArray)]byte[] hex, [MarshalAs(UnmanagedType.LPArray)]byte[] asc, int len);
+
+	[DllImport("mwrf32.dll", EntryPoint = "rf_reset", SetLastError = true,
+		 CharSet = CharSet.Auto, ExactSpelling = false,
+		 CallingConvention = CallingConvention.StdCall)]
+	public static extern Int16 rf_reset(int icdev, int msec);
+
+	[DllImport("mwrf32.dll", EntryPoint = "rf_request", SetLastError = true,
+		 CharSet = CharSet.Auto, ExactSpelling = false,
+		 CallingConvention = CallingConvention.StdCall)]
+	public static extern Int16 rf_request(int icdev, int mode, out UInt16 tagtype);
+
+
+	[DllImport("mwrf32.dll", EntryPoint = "rf_anticoll", SetLastError = true,
+		 CharSet = CharSet.Auto, ExactSpelling = false,
+		 CallingConvention = CallingConvention.StdCall)]
+	public static extern Int16 rf_anticoll(int icdev, int bcnt, out uint snr);
+
+	[DllImport("mwrf32.dll", EntryPoint = "rf_select", SetLastError = true,
+		 CharSet = CharSet.Auto, ExactSpelling = false,
+		 CallingConvention = CallingConvention.StdCall)]
+	public static extern Int16 rf_select(int icdev, uint snr, out byte size);
+
+	[DllImport("mwrf32.dll", EntryPoint = "rf_card", SetLastError = true,
+		CharSet = CharSet.Auto, ExactSpelling = false,
+		CallingConvention = CallingConvention.StdCall)]
+	public static extern Int16 rf_card(int icdev, int mode, [MarshalAs(UnmanagedType.LPArray)]byte[] snr);
+
+	[DllImport("mwrf32.dll", EntryPoint = "rf_authentication", SetLastError = true,
+		 CharSet = CharSet.Auto, ExactSpelling = false,
+		 CallingConvention = CallingConvention.StdCall)]
+	public static extern Int16 rf_authentication(int icdev, int mode, int secnr);
+
+	[DllImport("mwrf32.dll", EntryPoint = "rf_authentication_2", SetLastError = true,
+		 CharSet = CharSet.Auto, ExactSpelling = false,
+		 CallingConvention = CallingConvention.StdCall)]
+	public static extern Int16 rf_authentication_2(int icdev, int mode, int keynr, int blocknr);
+
+	[DllImport("mwrf32.dll", EntryPoint = "rf_read", SetLastError = true,
+		 CharSet = CharSet.Auto, ExactSpelling = false,
+		 CallingConvention = CallingConvention.StdCall)]
+	public static extern Int16 rf_read(int icdev, int blocknr, [MarshalAs(UnmanagedType.LPArray)]byte[] databuff);
+
+	[DllImport("mwrf32.dll", EntryPoint = "rf_read_hex", SetLastError = true,
+		 CharSet = CharSet.Auto, ExactSpelling = false,
+		 CallingConvention = CallingConvention.StdCall)]
+	public static extern Int16 rf_read_hex(int icdev, int blocknr, [MarshalAs(UnmanagedType.LPArray)]byte[] databuff);
+
+	[DllImport("mwrf32.dll", EntryPoint = "rf_write_hex", SetLastError = true,
+		 CharSet = CharSet.Auto, ExactSpelling = false,
+		 CallingConvention = CallingConvention.StdCall)]
+	public static extern Int16 rf_write_hex(int icdev, int blocknr, [MarshalAs(UnmanagedType.LPArray)]byte[] databuff);
+
+	[DllImport("mwrf32.dll", EntryPoint = "rf_write", SetLastError = true,
+		 CharSet = CharSet.Auto, ExactSpelling = false,
+		 CallingConvention = CallingConvention.StdCall)]
+	public static extern Int16 rf_write(int icdev, int blocknr, [MarshalAs(UnmanagedType.LPArray)]byte[] databuff);
+
+	[DllImport("mwrf32.dll", EntryPoint = "rf_halt", SetLastError = true,
+		 CharSet = CharSet.Auto, ExactSpelling = false,
+		 CallingConvention = CallingConvention.StdCall)]
+	public static extern Int16 rf_halt(int icdev);
+
+	[DllImport("mwrf32.dll", EntryPoint = "rf_changeb3", SetLastError = true,
+		CharSet = CharSet.Auto, ExactSpelling = false,
+		CallingConvention = CallingConvention.StdCall)]
+	public static extern Int16 rf_changeb3(int icdev, int sector, [MarshalAs(UnmanagedType.LPArray)]byte[] keya, int B0, int B1,
+		  int B2, int B3, int Bk, [MarshalAs(UnmanagedType.LPArray)]byte[] keyb);
+	#endregion
 }
 
