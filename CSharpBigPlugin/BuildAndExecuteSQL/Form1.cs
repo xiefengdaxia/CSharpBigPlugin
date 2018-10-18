@@ -386,10 +386,18 @@ namespace BuildAndExecuteSQL
                             using (SqlConnection conn = new SqlConnection(txtBatchSqlConnStr.Text))
                             {
                                 Microsoft.SqlServer.Management.Smo.Server server = new Server(new ServerConnection(conn));
-                                server.ConnectionContext.ExecuteNonQuery(sqlcontent);
+                                var ret=server.ConnectionContext.ExecuteNonQuery(sqlcontent);
+                                if (ret == 1)
+                                {
+                                    richTextBox1.AppendText("时间:" + DateTime.Now.ToLongTimeString() + ":" + path[i] + "执行成功！\n\r");
+                                }
+                                else
+                                {
+                                    richTextBox1.AppendText("时间:" + DateTime.Now.ToLongTimeString() + ":" + path[i] + "执行失败！\n\r");
+                                }
                             }
                             GC.Collect();
-                            richTextBox1.AppendText("时间:" + DateTime.Now.ToLongTimeString() + ":" + path[i] + "执行完毕！\n\r");
+                            
                         }
                     }
                 });
