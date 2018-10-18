@@ -49,11 +49,19 @@
             this.button12 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtBatchSqlConnStr = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnSelectAndExecSql = new System.Windows.Forms.Button();
+            this.lblPs = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTotalRecords)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox12
@@ -123,6 +131,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -274,6 +283,67 @@
             this.richTextBox1.TabIndex = 54;
             this.richTextBox1.Text = "";
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.groupBox1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(528, 185);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "批量执行sql脚本";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblPs);
+            this.groupBox1.Controls.Add(this.txtBatchSqlConnStr);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.btnSelectAndExecSql);
+            this.groupBox1.Location = new System.Drawing.Point(17, 10);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(494, 164);
+            this.groupBox1.TabIndex = 41;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "执行脚本设置";
+            // 
+            // txtBatchSqlConnStr
+            // 
+            this.txtBatchSqlConnStr.Location = new System.Drawing.Point(66, 31);
+            this.txtBatchSqlConnStr.Multiline = true;
+            this.txtBatchSqlConnStr.Name = "txtBatchSqlConnStr";
+            this.txtBatchSqlConnStr.Size = new System.Drawing.Size(410, 53);
+            this.txtBatchSqlConnStr.TabIndex = 39;
+            this.txtBatchSqlConnStr.Text = "Data Source = 192.168.2.78;Initial Catalog = 数据库名;User Id = sa;Password =密码;";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 12);
+            this.label2.TabIndex = 38;
+            this.label2.Text = "连接参数:";
+            // 
+            // btnSelectAndExecSql
+            // 
+            this.btnSelectAndExecSql.Location = new System.Drawing.Point(294, 95);
+            this.btnSelectAndExecSql.Name = "btnSelectAndExecSql";
+            this.btnSelectAndExecSql.Size = new System.Drawing.Size(182, 50);
+            this.btnSelectAndExecSql.TabIndex = 27;
+            this.btnSelectAndExecSql.Text = "批量选择sql脚本并且执行";
+            this.btnSelectAndExecSql.UseVisualStyleBackColor = true;
+            this.btnSelectAndExecSql.Click += new System.EventHandler(this.btnSelectAndExecSql_Click);
+            // 
+            // lblPs
+            // 
+            this.lblPs.AutoSize = true;
+            this.lblPs.Location = new System.Drawing.Point(16, 133);
+            this.lblPs.Name = "lblPs";
+            this.lblPs.Size = new System.Drawing.Size(137, 12);
+            this.lblPs.TabIndex = 40;
+            this.lblPs.Text = "PS：单个文件一个个执行";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -297,6 +367,9 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTotalRecords)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -324,6 +397,12 @@
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblPs;
+        private System.Windows.Forms.TextBox txtBatchSqlConnStr;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnSelectAndExecSql;
     }
 }
 

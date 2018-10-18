@@ -10,7 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-
+using Microsoft.SqlServer.Management.Common;
+using Microsoft.SqlServer.Management.Smo;
 namespace BuildAndExecuteSQL
 {
     public partial class Form1 : Form
@@ -300,9 +301,18 @@ namespace BuildAndExecuteSQL
                 richTextBox1.AppendText(ex.Message + "\n\r" + ex.StackTrace);
             }
         }
-        public void insertToDB(StringBuilder sb_sqls)
+        public void insertToDB(StringBuilder sb_sqls,string connStr=null)
         {
-            SqlConnection conn = new SqlConnection(textBoxConnectionString.Text);
+            SqlConnection conn;
+            if (string.IsNullOrEmpty(connStr))
+            {
+                conn = new SqlConnection(textBoxConnectionString.Text);
+            }
+            else
+            {
+                conn = new SqlConnection(connStr);
+            }
+            
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conn;
             conn.Open();
@@ -332,6 +342,64 @@ namespace BuildAndExecuteSQL
         private void Form1_Load(object sender, EventArgs e)
         {
            CSHelper.getsqlconn();
+        }
+
+        private void btnSelectAndExecSql_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("请检查连接参数是否正确?\n\r" + txtBatchSqlConnStr.Text + "\n\r正确点确定，否则取消", "友情提示", MessageBoxButtons.OKCancel);
+            if (result != DialogResult.OK)
+            {
+                return;
+            }
+
+            //每次批量执行的sql条数
+            int sql_count = (int)numericUpDownTotalRecords.Value;
+
+            try
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Title = "打开";
+                ofd.Filter = "所有文件|*.sql";
+                ofd.Multiselect = true;
+                ofd.InitialDirectory = Application.StartupPath;
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    path = ofd.FileNames;
+                }
+                if (path == null)
+                {
+                    return;
+                }
+                Thread worker = new Thread(delegate()
+                {
+                    DateTime dt_read_txt = DateTime.Now;
+                    
+                    for (int i = 0; i < path.Length; i++)
+                    {
+                        using (StreamReader sr = new StreamReader(path[i], Encoding.Default))
+                        {
+
+                            var sqlcontent = string.Empty;
+                            sqlcontent = sr.ReadToEnd();
+                            var sqls = new StringBuilder();
+
+                            using (SqlConnection conn = new SqlConnection(txtBatchSqlConnStr.Text))
+                            {
+                                Microsoft.SqlServer.Management.Smo.Server server = new Server(new ServerConnection(conn));
+                                server.ConnectionContext.ExecuteNonQuery(sqlcontent);
+                            }
+                            GC.Collect();
+                            richTextBox1.AppendText("时间:" + DateTime.Now.ToLongTimeString() + ":" + path[i] + "执行完毕！\n\r");
+                        }
+                    }
+                });
+                worker.IsBackground = true;
+                worker.Start();
+            }
+            catch (Exception ex)
+            {
+                richTextBox1.AppendText(ex.Message + "\n\r" + ex.StackTrace);
+            }
         }
     }
 }
