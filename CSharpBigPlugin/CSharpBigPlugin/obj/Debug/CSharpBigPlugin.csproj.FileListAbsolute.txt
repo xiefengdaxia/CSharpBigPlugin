@@ -24,3 +24,10 @@ F:\project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\obj\Debug\CSharpBigPl
 F:\project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\obj\Debug\CSharpBigPlugin.Form1.resources
 F:\project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\obj\Debug\CSharpBigPlugin.Properties.Resources.resources
 F:\project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\obj\Debug\CSharpBigPlugin.csproj.GenerateResource.Cache
+F:\project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\bin\Debug\CSharpBigPlugin.exe
+F:\project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\bin\Debug\CSharpBigPlugin.pdb
+F:\project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\bin\Debug\CSHelper.dll
+F:\project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\bin\Debug\CSHelper.pdb
+F:\project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\bin\Debug\DevComponents.DotNetBar2.xml
+F:\project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\obj\Debug\CSharpBigPlugin.exe
+F:\project\CSharpBigPlugin\CSharpBigPlugin\CSharpBigPlugin\obj\Debug\CSharpBigPlugin.pdb

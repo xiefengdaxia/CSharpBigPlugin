@@ -372,34 +372,46 @@ namespace BuildAndExecuteSQL
                 }
                 Thread worker = new Thread(delegate()
                 {
-                    DateTime dt_read_txt = DateTime.Now;
                     
-                    for (int i = 0; i < path.Length; i++)
-                    {
-                        using (StreamReader sr = new StreamReader(path[i], Encoding.Default))
+                        DateTime dt_read_txt = DateTime.Now;
+
+                        for (int i = 0; i < path.Length; i++)
                         {
-
-                            var sqlcontent = string.Empty;
-                            sqlcontent = sr.ReadToEnd();
-                            var sqls = new StringBuilder();
-
-                            using (SqlConnection conn = new SqlConnection(txtBatchSqlConnStr.Text))
+                            try
                             {
-                                Microsoft.SqlServer.Management.Smo.Server server = new Server(new ServerConnection(conn));
-                                var ret=server.ConnectionContext.ExecuteNonQuery(sqlcontent);
-                                if (ret == 1)
+                                using (StreamReader sr = new StreamReader(path[i], Encoding.Default))
                                 {
-                                    richTextBox1.AppendText("时间:" + DateTime.Now.ToLongTimeString() + ":" + path[i] + "执行成功！\n\r");
-                                }
-                                else
-                                {
-                                    richTextBox1.AppendText("时间:" + DateTime.Now.ToLongTimeString() + ":" + path[i] + "执行失败！\n\r");
+                                     //当前文件信息
+                                    FileInfo currentFile = new FileInfo(path[i]);
+
+                                    var fileInfo = string.Format("--当前脚本 修改时间：{0} 执行时间：{1} --来自批量执行脚本工具附加信息" + System.Environment.NewLine, currentFile.LastWriteTime, DateTime.Now);
+                                    var sqlcontent = sr.ReadToEnd();
+                                    sqlcontent = sqlcontent.Replace("CREATE PROCEDURE", fileInfo + System.Environment.NewLine + "CREATE PROCEDURE");
+                                    sqlcontent = sqlcontent.Replace("create procedure", fileInfo + System.Environment.NewLine + "CREATE PROCEDURE");
+                                    sqlcontent = sqlcontent.Replace("CREATE FUNCTION", fileInfo + System.Environment.NewLine + "CREATE FUNCTION");
+                                    
+                                    //var fileInfo = string.Format("--当前脚本 修改时间：{0} 执行时间：{1} --来自批量执行脚本工具附加信息\n\r", currentFile.LastWriteTime, DateTime.Now);
+                                    //var sqlcontent = sr.ReadToEnd();
+                                    //sqlcontent = sqlcontent.Replace("CREATE PROCEDURE", fileInfo + "\nCREATE PROCEDURE");
+                                    //sqlcontent = sqlcontent.Replace("create procedure", fileInfo + "\nCREATE PROCEDURE");
+                                    //sqlcontent = sqlcontent.Replace("CREATE FUNCTION", fileInfo + "\nCREATE FUNCTION");
+                                   
+                                    using (SqlConnection conn = new SqlConnection(txtBatchSqlConnStr.Text))
+                                    {
+                                        Microsoft.SqlServer.Management.Smo.Server server = new Server(new ServerConnection(conn));
+                                        var ret = server.ConnectionContext.ExecuteNonQuery(sqlcontent);
+                                        richTextBox1.AppendText("时间:" + DateTime.Now.ToLongTimeString() + ":" + path[i] + "执行结果！"+ret+"\n\r");
+                                    }
+                                    GC.Collect();
+
                                 }
                             }
-                            GC.Collect();
-                            
+                            catch (Exception ex)
+                            {
+                                richTextBox1.AppendText("执行" + path[i] + "报错！"+ex.Message + "\n\r" + ex.StackTrace);
+                            }
                         }
-                    }
+                   
                 });
                 worker.IsBackground = true;
                 worker.Start();
